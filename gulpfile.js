@@ -9,5 +9,6 @@ gulp.task('html', function(){
 gulp.task('deploy', function(callback) {
   ghpages.publish('dist/', {
       branch: 'master',
+      message: 'Update ' + new Date().toISOString()
   }, callback);
 });
