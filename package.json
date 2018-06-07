@@ -1,0 +1,11 @@
+{
+  "name": "gabrielsimoes.github.io",
+  "version": "1.0.0",
+  "description": "My personal website https://gabrielsimoes.github.io/",
+  "repository": "git@github.com:gabrielsimoes/gabrielsimoes.github.io.git",
+  "author": "Gabriel Silva Simões <simoes.sgabriel@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
