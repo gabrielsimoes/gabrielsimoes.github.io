@@ -6,6 +6,7 @@
   "author": "Gabriel Silva Simões <simoes.sgabriel@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gh-pages": "^1.2.0",
+    "gulp": "^4.0.0"
   }
 }
