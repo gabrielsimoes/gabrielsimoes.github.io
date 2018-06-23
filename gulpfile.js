@@ -104,6 +104,12 @@ function processPages(data) {
     }
 
     if (file.extname == '.pug') {
+      data.articles.sort(function(a, b) {
+        if (a.date != b.date) return b.date.getTime() - a.date.getTime();
+        else if (a.title != b.title) return a.title > b.title ? -1 : 1;
+        else return 0;
+      });
+
       let locals = Object.assign(Object.create(data), { filename: file.path });
 
       file.contents = new Buffer(pug.render(file.contents, locals));
@@ -135,12 +141,6 @@ function processPages(data) {
     this.push(file);
     callback();
   }, function(callback) {
-    data.articles.sort(function(a, b) {
-      if (a.date != b.date) return a.date.getTime() - b.date.getTime();
-      else if (a.title != b.title) return a.title < b.title ? -1 : 1;
-      else return 0;
-    });
-
     this.push(new Vinyl({
       cwd: '/',
       base: '/',

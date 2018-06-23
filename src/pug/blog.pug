@@ -5,3 +5,20 @@ block title
 
 block main
   h1 Blog
+  
+  ul.blog-list
+    each article in articles
+      li.blog-item
+        .blog-item-wrapper
+          if article.image
+            img.blog-image(alt=article.title src=article.image)
+          span.date= article.date.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })
+          .title
+            a(href=article.url)= article.title
+          if article.subtitle
+            .subtitle=article.subtitle
+          if article.tags
+            .tags
+              each tag in article.tags
+                span.tag= tag
+          

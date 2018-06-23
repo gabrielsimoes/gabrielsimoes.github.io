@@ -316,7 +316,6 @@ dl {
 
   +.task-list-item {
     margin-top: 3px;
-
   }
 
   input {
@@ -428,5 +427,46 @@ img:not(.my-image) {
 
   &[align=left] {
     margin-right: 20px;
+  }
+}
+
+ul.blog-list {
+  .blog-item-wrapper {
+    font-size: 1.1em;
+    overflow: auto;
+  }
+
+  li.blog-item {
+    margin: 0.5em 0 0.5em -2em;
+    padding-bottom: 0.3em;
+    list-style-type: none;
+    border-bottom: 1px solid #eaecef;
+  }
+
+  img.blog-image {
+    display: block;
+    float: left;
+    max-width: 120px;
+    max-height: 100px;
+    margin-right: .5em;
+
+    @media screen and (min-width: $break-mid) {
+      max-width: 200px;
+      max-height: 150px;
+    }
+  }
+
+  .date {
+    float: right;
+  }
+
+  .tag {
+    margin: 0 5px 0 0;
+    padding: 0.15em 0.4em;
+    font-family: monospace, monospace;
+    font-size: 85%;
+    border-radius: 4px;
+    color: $fg-header;
+    background-color: rgba($bg-header, 0.8);
   }
 }
