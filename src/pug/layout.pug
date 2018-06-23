@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+
+    block title
+
+    link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+    link(rel="icon" href="/favicon.ico" type="image/x-icon")
+
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/gruvbox-dark.css")
+    
+    link(rel="stylesheet" href="/style.css")
+      
+    script(src="/script.js")
+  body
+    header
+      .header-top
+        img.my-image(src="/me-bw.png" alt="A picture of me")
+        p.my-name #{name}
+        p.my-occupation #{occupation}
+
+      nav
+        ul
+          li
+            a.item-content(href="/") Home
+          li
+            span.item-content Blog
+          li
+            span.item-content Archive
+          li
+            span.item-content Reading/Watching List
+
+    main.markdown-body
+      block main
+
+    footer
+      = 'Site last updated: ' + lastupdate.toUTCString() + '.'
