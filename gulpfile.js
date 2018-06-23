@@ -159,7 +159,7 @@ gulp.task('pages', function() {
     'notes/*/**/*.md',
     '!notes/personal/**/*',
     '!notes/personal',
-    'src/pug/index.pug'
+    'src/pug/{index,blog,archive,reading-watching-list}.pug'
   ]).pipe(plumber())
     .pipe(processPages(data))
     .pipe(gulp.dest('dist/'));
