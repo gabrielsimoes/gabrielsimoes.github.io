@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Notes on &quot;Simple Made Easy&quot; by Rich Hickey // Gabriel Simões</title><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/gruvbox-dark.css"><link rel="stylesheet" href="/style.css"><script src="/script.js"></script></head><body><header><div class="header-top"><img class="my-image" src="/me-bw.png" alt="A picture of me"><p class="my-name">Gabriel Simões</p><p class="my-occupation">Software Developer</p></div><nav><ul><li><a class="item-content" href="/">Home</a></li><li><span class="item-content">Blog</span></li><li><span class="item-content">Archive</span></li><li><span class="item-content">Reading/Watching List</span></li></ul></nav></header><main class="markdown-body"><article><h1 id="notes-on-simple-made-easy-by-rich-hickey"><a class="anchor" href="#notes-on-simple-made-easy-by-rich-hickey" aria-hidden="true">¶</a> Notes on “Simple Made Easy” by Rich Hickey</h1>
+<ul>
+<li>We should aim for simplicity because simplicity is a prerequisite for reliability.</li>
+<li>Simple != Easy.
+<ul>
+<li>“Easy” means “to be at hand”, “to be approachable”.</li>
+<li>“Simple” is the opposite of “complex” which means “being intertwined”, “being tied together”.</li>
+<li>“Simple” is about doing a single thing, not about doing it only once (cardinality).</li>
+</ul>
+</li>
+<li>What matters in software is: does the software do what is supposed to do? Is it of high quality? Can we rely on it? Can problems be fixed along the way? Can requirements change over time? The answers to these questions is what matters in writing software not the look and feel of the experience writing the code or the cultural implications of it.</li>
+<li>The benefits of simplicity are: ease of understanding, ease of change, ease of debugging, flexibility.</li>
+<li>Complex constructs: State, Object, Methods, Syntax, Inheritance, Switch/matching, Vars, Imperative loops, Actors, ORM, Conditionals.</li>
+<li>Simple constructs: Values, Functions, Namespaces, Data, Polymorphism, Managed refs, Set functions, Queues, Declarative data manipulation, Rules, Consistency.</li>
+<li>The following constructs are simpler:
+<ul>
+<li>Values: use final, persistent collections</li>
+<li>Functions: use stateless methods</li>
+<li>Namespaces: use a language with good support for namespaces</li>
+<li>Data: use maps, arrays, sets, XML, JSON, etc.</li>
+<li>Polymorphism: through protocols, type classes</li>
+<li>Managed Refs: Clojure, Haskell</li>
+<li>Set functions: via libraries</li>
+<li>Queues: via libraries</li>
+<li>Declarative data manipulation: via SQL, LINQ, Datalog</li>
+<li>Rules: via libraries or natively in Prolog</li>
+</ul>
+</li>
+<li>Build simple systems by:
+<ul>
+<li>Abstracting - design by answering questions related to what, who, when, where, why, and how.</li>
+<li>Choosing constructs that generate simple artifacts.</li>
+<li>Simplify by encapsulation.</li>
+</ul>
+</li>
+</ul>
+</article></main><footer>Site last updated: Sat, 23 Jun 2018 02:15:31 GMT.</footer></body></html>

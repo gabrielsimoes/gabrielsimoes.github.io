@@ -1,0 +1,1 @@
+window.onload=function(){var o=document.querySelector("header"),e=o.querySelector("img.my-image");o.onmouseover=function(){e.src="/me-colored.png"},o.onmouseout=function(){e.src="/me-bw.png"}};

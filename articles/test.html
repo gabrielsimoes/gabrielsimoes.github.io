@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Test Cheatsheet // Gabriel Simões</title><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/gruvbox-dark.css"><link rel="stylesheet" href="/style.css"><script src="/script.js"></script></head><body><header><div class="header-top"><img class="my-image" src="/me-bw.png" alt="A picture of me"><p class="my-name">Gabriel Simões</p><p class="my-occupation">Software Developer</p></div><nav><ul><li><a class="item-content" href="/">Home</a></li><li><span class="item-content">Blog</span></li><li><span class="item-content">Archive</span></li><li><span class="item-content">Reading/Watching List</span></li></ul></nav></header><main class="markdown-body"><article><h1 id="test-cheatsheet"><a class="anchor" href="#test-cheatsheet" aria-hidden="true">¶</a> Test Cheatsheet</h1>
+<p>It’s very easy to make some words <strong>bold</strong> and other words <em>italic</em> with Markdown. You can even <a href="http://google.com">link to Google!</a></p>
+<p>Sometimes you want numbered lists:</p>
+<ol>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+</ol>
+<p>Sometimes you want bullet points:</p>
+<ul>
+<li>Start a line with a star</li>
+<li>Profit!</li>
+</ul>
+<p>Alternatively,</p>
+<ul>
+<li>Dashes work just as well</li>
+<li>And if you have sub points, put two spaces before the dash or star:
+<ul>
+<li>Like this</li>
+<li>And this</li>
+</ul>
+</li>
+</ul>
+<p>If you want to embed images, this is how you do it:</p>
+<p><img src="https://octodex.github.com/images/yaktocat.png" alt="Image of Yaktocat"></p>
+<h1 id="structured-documents"><a class="anchor" href="#structured-documents" aria-hidden="true">¶</a> Structured documents</h1>
+<p>Sometimes it’s useful to have different levels of headings to structure your documents. Start lines with a <code>#</code> to create headings. Multiple <code>##</code> in a row denote smaller heading sizes.</p>
+<h3 id="this-is-a-third-tier-heading"><a class="anchor" href="#this-is-a-third-tier-heading" aria-hidden="true">¶</a> This is a third-tier heading</h3>
+<p>You can use one <code>#</code> all the way up to <code>######</code> six for different heading sizes.</p>
+<p>If you’d like to quote someone, use the &gt; character before the line:</p>
+<blockquote>
+<p>Coffee. The finest organic suspension ever devised… I beat the Borg with it.</p>
+<p>- Captain Janeway</p>
+</blockquote>
+<p>There are many different ways to style code with GitHub’s markdown. If you have inline code blocks, wrap them in backticks: <code>var example = true</code>.  If you’ve got a longer block of code, you can indent with four spaces:</p>
+<pre><code>if (isAwesome){
+  return true
+}
+</code></pre>
+<p>GitHub also supports something called code fencing, which allows for multiple lines without indentation:</p>
+<pre><code class="language- hljs">if (isAwesome){
+  return true
+}
+</code></pre>
+<p>And if you’d like to use syntax highlighting, include the language:</p>
+<pre><code class="language-javascript hljs"><span class="hljs-keyword">if</span> (isAwesome){
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>GitHub supports many extras in Markdown that help you reference and link to people. If you ever want to direct a comment at someone, you can prefix their name with an @ symbol: Hey @kneath — love your sweater!</p>
+<p>But I have to admit, tasks lists are my favorite:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> This is a complete item</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> This is an incomplete item</li>
+</ul>
+<p>When you include a task list in the first comment of an Issue, you will see a helpful progress bar in your list of issues. It works in Pull Requests, too!</p>
+<p>And, of course emoji! :sparkles: :camel: :boom:</p>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content from cell 1</td>
+<td>Content from cell 2</td>
+</tr>
+<tr>
+<td>Content in the first column</td>
+<td>Content in the second columnF</td>
+</tr>
+</tbody>
+</table>
+<p>Any word wrapped with two tildes (like <s>this</s>) will appear crossed out.</p>
+<h1 id="an-h1-header"><a class="anchor" href="#an-h1-header" aria-hidden="true">¶</a> An h1 header</h1>
+<p><kbd>Esc</kbd></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> This is a complete item</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> This is an incomplete item</li>
+</ul>
+<p>Paragraphs are separated by a blank line.</p>
+<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>.</p>
+<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., “it’s all
+in chapters 12–14”). Three dots … will be converted to an ellipsis.
+Unicode is supported. ☺</p>
+<p>Here’s a footnote <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>A horizontal rule follows.</p>
+<hr>
+<p>Again, text is indented 4 spaces. (Put a blank line between each
+term/definition pair to spread things out more.)</p>
+<p>Inline math equations go in like so: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ω</mi><mo>=</mo><mi>d</mi><mi>ϕ</mi><mi mathvariant="normal">/</mi><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\omega = d\phi / dt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">ω</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">d</span><span class="mord mathit">ϕ</span><span class="mord">/</span><span class="mord mathit">d</span><span class="mord mathit">t</span></span></span></span>. Display
+math should get its own line and be put in in double-dollarsigns:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mo>=</mo><mo>∫</mo><mi>ρ</mi><msup><mi>R</mi><mn>2</mn></msup><mi>d</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">I = \int \rho R^{2} dV
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.36em;"></span><span class="strut bottom" style="height:2.22225em;vertical-align:-0.86225em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit">ρ</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><mi mathvariant="normal">∞</mi></msubsup><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>(</mo><mi>ξ</mi><mo>)</mo><mspace width="0.16667em"></mspace><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>ξ</mi><mi>x</mi></mrow></msup><mspace width="0.16667em"></mspace><mi>d</mi><mi>ξ</mi></mrow><annotation encoding="application/x-tex">f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+\,d\xi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.414292em;"></span><span class="strut bottom" style="height:2.384573em;vertical-align:-0.970281em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.414292em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">∞</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.970281em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04601em;">ξ</span><span class="mclose">)</span><span class="mspace thinspace"></span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathit mtight" style="margin-right:0.03588em;">π</span><span class="mord mathit mtight">i</span><span class="mord mathit mtight" style="margin-right:0.04601em;">ξ</span><span class="mord mathit mtight">x</span></span></span></span></span></span></span></span></span><span class="mspace thinspace"></span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.04601em;">ξ</span></span></span></span></span></p>
+<p>And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
+<h1 id="h1"><a class="anchor" href="#h1" aria-hidden="true">¶</a> H1</h1>
+<h2 id="h2"><a class="anchor" href="#h2" aria-hidden="true">¶</a> H2</h2>
+<h3 id="h3"><a class="anchor" href="#h3" aria-hidden="true">¶</a> H3</h3>
+<h4 id="h4"><a class="anchor" href="#h4" aria-hidden="true">¶</a> H4</h4>
+<h5 id="h5"><a class="anchor" href="#h5" aria-hidden="true">¶</a> H5</h5>
+<h6 id="h6"><a class="anchor" href="#h6" aria-hidden="true">¶</a> H6</h6>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text goes here. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</article></main><footer>Site last updated: Sat, 23 Jun 2018 02:15:31 GMT.</footer></body></html>
