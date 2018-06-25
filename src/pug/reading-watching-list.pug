@@ -11,7 +11,7 @@ block main
       ul.timeline
         each item in rwlist
           li.timeline-item
-            .timeline-date= item.date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })
+            .timeline-date= item.date.toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" })
             if item.type == "book"
               .timeline-icon.icon-book-open
             if item.type == "talk"
@@ -29,7 +29,8 @@ block main
             if item.quotes
               .timeline-quotes
                 span.icon-list
-                |  Quotes
+                |
+                | Quotes
               .mask(role="dialog")
               .modal(role="alert")
                 button.close(role="button") X
@@ -52,7 +53,8 @@ block main
               .timeline-notes
                 a(href="/" + item.type + "s/" + item.notes + ".html")
                   span.icon-note
-                  |  Notes
+                  |
+                  | Notes
     .tolist-wrapper
       h3.tolist-title To Read
       ul.tolist

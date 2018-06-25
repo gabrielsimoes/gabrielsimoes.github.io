@@ -108,7 +108,10 @@ function processPages(data) {
 
     let locals = Object.assign(Object.create(data), { filename: file.path });
 
-    file.contents = new Buffer(minify(pug.render(file.contents, locals), {collapseWhitespace: true}));
+    file.contents = new Buffer(minify(pug.render(file.contents, locals), {
+      collapseWhitespace: true,
+      conservativeCollapse: true
+    }));
     file.extname = '.html';
 
     return file;
@@ -129,7 +132,10 @@ function processPages(data) {
 
     var locals = Object.assign(Object.create(data), article);
 
-    file.contents = new Buffer(minify(articleFn(locals), {collapseWhitespace: true}));
+    file.contents = new Buffer(minify(articleFn(locals), {
+      collapseWhitespace: true,
+      conservativeCollapse: true
+    }));
 
     data.articles.push(article);
 
