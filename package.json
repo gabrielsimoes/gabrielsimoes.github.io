@@ -17,6 +17,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
+    "feed": "^1.1.1",
     "front-matter": "^2.3.0",
     "fs": "0.0.1-security",
     "gh-pages": "^1.2.0",
@@ -33,6 +34,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
     "highlight.js": "^9.12.0",
+    "html-minifier": "^3.5.16",
     "js-yaml": "^3.12.0",
     "katex": "^0.10.0-beta",
     "markdown-it": "^8.4.1",
@@ -41,6 +43,7 @@
     "markdown-it-container": "^2.0.0",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-highlightjs": "^3.0.0",
+    "markdown-it-inline-comments": "^1.0.1",
     "markdown-it-task-lists": "^2.1.1",
     "merge2": "^1.2.2",
     "normalize-scss": "^7.0.1",
@@ -50,7 +53,8 @@
     "rss": "^1.2.2",
     "through2": "^2.0.3",
     "uglify": "^0.1.5",
-    "vinyl": "^2.1.0"
+    "vinyl": "^2.1.0",
+    "xmlbuilder": "^10.0.0"
   },
   "dependencies": {}
 }
