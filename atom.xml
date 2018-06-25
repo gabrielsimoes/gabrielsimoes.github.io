@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2018-06-25T17:12:07Z</updated>
+    <updated>2018-06-25T17:20:07Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simões</name>
@@ -35,9 +35,7 @@ with very little effort.</p>
 these too details, some might find them too shallow. Either way, those notes
 cover the whole book series and are meant as a review, so I can learn things
 more effectively and quickly review some details.</p>
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-<ul>
-<li><a href="https://gabrielsimoes.github.io//#notes-on-you-dont-know-js-by-kyle-simpson">Notes on “You Don’t Know JS” by Kyle Simpson</a>
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 <ul>
 <li><a href="https://gabrielsimoes.github.io//#up-going">Up &amp; Going</a></li>
 <li><a href="https://gabrielsimoes.github.io//#scope-closures">Scope &amp; Closures</a>
@@ -88,8 +86,6 @@ more effectively and quickly review some details.</p>
 </ul>
 </li>
 <li><a href="https://gabrielsimoes.github.io//#es6-beyond">ES6 &amp; Beyond</a></li>
-</ul>
-</li>
 </ul>
 <!-- /TOC -->
 <h2 id="up-going"><a class="anchor" href="https://gabrielsimoes.github.io//#up-going" aria-hidden="true">¶</a> Up &amp; Going</h2>
