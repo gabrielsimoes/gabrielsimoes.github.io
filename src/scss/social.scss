@@ -1,0 +1,48 @@
+.social-list-wrapper {
+  display: table;
+  margin: 0 auto;
+}
+
+ul.social-list {
+  list-style: none;
+  overflow: hidden;
+  margin-top: 2em;
+  padding: 0;
+  font-size: 1.2em;
+  width: 100%;
+  text-align: center;
+
+  li.social-item {
+    position: relative;
+    float: left;
+    margin: 0 .5em 0 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $fg-header;
+  }
+}
+
+.cv-wrapper {
+  margin-top: 2em;
+  text-align: center;
+
+  .cv-btn {
+    display: inline-block;
+    padding: 0.35em .7em;
+    border: 0.1em solid $fg-header;
+    border-radius: 0.15em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: $fg-header;
+    text-align: center;
+    transition: all 0.2s;
+    word-spacing: -3px;
+
+    &:hover {
+      color: darken($bg-header, 20);
+      background-color: #FFFFFF;
+    }
+  }
+}

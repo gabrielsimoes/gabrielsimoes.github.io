@@ -1,0 +1,151 @@
+.timeline-wrapper, .tolist-wrapper {
+  vertical-align: top;
+  font-size: 1.05em;
+  overflow: auto;
+
+  @media screen and (min-width: $break-large) {
+    display: inline-block;
+    width: 50%;
+  }
+}
+
+ul.timeline {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin-left: 7em;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    width: 2px;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    background: $details;
+  }
+
+  li.timeline-item {
+    margin-left: 1.5em;
+    padding: 10px 20px;
+  }
+
+  .timeline-date {
+    position: absolute;
+    left: -8em;
+    width: 120px;
+    padding-top: .1em;
+    text-align: right;
+    color: $details;
+  }
+
+  .timeline-icon {
+    position: absolute;
+    left: .6em;
+    padding: .25em 0;
+    color: $details;
+    background-color: $bg-main;
+  }
+
+  .timeline-title {
+    font-weight: bold;
+  }
+
+  .timeline-title a,
+  .timeline-quotes,
+  .timeline-notes a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      color: $details;
+      background: transparent;
+    }
+  }
+}
+
+ul.tolist {
+  list-style: none;
+  position: relative;
+  padding: 0;
+
+  .tolist-title {
+    padding: 0;
+  }
+
+  li.tolist-item {
+    margin: 0 0 .5em 1.5em;
+  }
+
+  .tolist-icon {
+    position: absolute;
+    left: .2em;
+    padding: .4em 0 0 0;
+    font-size: 80%;
+    color: $details;
+    background-color: $bg-main;
+  }
+}
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(black, 0.6);
+  z-index: 50;
+
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.7s;
+}
+
+.modal {
+  position: fixed;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  width: 600px;
+  max-width: 90%;
+  height: 400px;
+  max-height: 90%;
+
+  padding: 20px 10px;
+  font-size: .95em;
+  overflow: auto;
+
+  background: darken($bg-main, 5);
+  color: $fg-main;
+
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-out;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 30px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+  }
+}
+
+.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,10 @@
+.article-title {
+  // nothing special besides an h1 header
+}
+
+.article-date {
+  margin-left: .8rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: lighten($fg-main, 40);
+}
