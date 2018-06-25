@@ -16,8 +16,12 @@ $break-large: 850px;
 html {
   height: 100%;
   line-height: 1.4;
-	font-size: 1em;
+	font-size: 15px;
   font-family: "Fira Sans", sans-serif, 'Fira Mono', monospace;
+
+  @media screen and (min-width: $break-mid) {
+    font-size: 16px;
+  }
 }
 
 header {
@@ -430,6 +434,17 @@ img:not(.my-image) {
   &[align=left] {
     margin-right: 20px;
   }
+}
+
+.article-title {
+
+}
+
+.article-date {
+  margin-left: .8rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: lighten($fg-main, 40);
 }
 
 ul.blog-list {

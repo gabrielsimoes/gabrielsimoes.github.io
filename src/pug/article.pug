@@ -5,4 +5,8 @@ block title
 
 block main
   article
+    h1.article-title
+      = title
+      span.article-date= date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })
     != content
+
