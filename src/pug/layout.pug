@@ -3,11 +3,14 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width,initial-scale=1")
+    meta(name="theme-color" content="#aa4b41")
 
     block title
 
     link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
     link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    link(rel="manifest" href="/manifest.json")
+    
 
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans" media="all")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css" media="all")
@@ -43,7 +46,7 @@ html(lang="en")
             mixin social(title, url, icon)
               li.social-item(title=title)
                 a(href= url)
-                  span&attributes({class: "social-icon " + icon})
+                  span&attributes({title: title, class: "social-icon " + icon})
             
             +social(email, "mailto:" + email, "icon-envelope")
             +social(github, "https://github.com/" + github, "icon-social-github")
@@ -58,5 +61,5 @@ html(lang="en")
     footer
       = "Site last updated: " + lastupdate.toUTCString() + "."
 
-    script(src="/script.js")
     script(src="https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
+    script(src="/main.js")
