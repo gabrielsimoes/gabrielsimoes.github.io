@@ -1,0 +1,65 @@
+.about-title About Me
+.about-content
+  p #{about}
+  p These are the skills I'm most experienced with:
+  .about-list-wrapper
+    ul.about-list
+      each skill in skills
+        li.about-item= skill
+        
+mixin timeblock(item)
+  .about-time-block
+    if item.when
+      .about-time-block-date= item.when.toLocaleDateString("en", { year: "numeric"})
+    else if item.start
+      .about-time-block-date
+        =item.start.toLocaleDateString("en", { year: "numeric", month: "short"})
+        if item.end
+          = " — " + item.end.toLocaleDateString("en", { year: "numeric", month: "short"})
+        else
+          = " — Now"
+    .about-time-block-info
+      mixin desc(what, where)
+        span.about-time-block-what= what
+        if where
+          = " — "
+          span.about-time-block-where
+            = where
+      if item.url
+        a(href=item.url)
+          +desc(item.what, item.where)
+      else
+        +desc(item.what, item.where)
+    if item.extra
+      .about-time-block-more= item.extra
+        
+.about-title Education
+.about-content
+  each item in education
+    +timeblock(item)
+        
+.about-title Experience
+.about-content
+  each item in work
+    +timeblock(item)
+    
+.about-title Awards
+.about-content
+  //- .about-subtitle International
+  each item in awards.international
+    +timeblock(item)
+  //- .about-subtitle Domestic
+  //- each item in awards.domestic
+  //-   +timeblock(item)
+  
+.about-title Languages
+.about-content
+  .about-list-wrapper
+      ul.about-list
+        each item in languages
+          li.about-item= item.what + " (" + item.level + ")"
+  
+.about-title  Open-Source Projects
+.about-content
+  each item in projects
+    +timeblock(item)

@@ -1,0 +1,84 @@
+.about-title, .about-content {
+  width: 100%;
+  margin-top: 1em;
+
+  @media screen and (min-width: $break-mid) {
+    margin-top: 3em;
+  }
+}
+
+.about-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $details;
+
+  @media screen and (min-width: $break-mid) {
+    display: inline-block;
+    width: 20%;
+    padding-left: 1em;
+    vertical-align: top;
+  }
+}
+
+.about-subtitle {
+  font-weight: 600;
+  color: $details;
+  margin-bottom: 1em;
+}
+
+.about-content {
+  @media screen and (min-width: $break-mid) {
+    display: inline-block;
+    width: 80%;
+  }
+}
+
+.about-list-wrapper {
+  column-width: 10em;
+
+  ul.about-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li:before {
+      content: "• ";
+      padding-right: .3em;
+      font-weight: 600;
+      color: $details;
+    }
+  }
+}
+
+.about-time-block {
+  margin-bottom: .5em;
+
+  a {
+    color: $fg-main;
+    text-decoration: none;
+
+    &:hover {
+      color: $details;
+    }
+  }
+
+  .about-time-block-what {
+    font-weight: bold;
+  }
+
+  .about-time-block-where {
+    font-weight: bold;
+    color: lighten($fg-main, 30);
+  }
+
+  .about-time-block-date {
+    font-size: 80%;
+    font-weight: bold;
+    color: $details;
+
+    @media screen and (min-width: $break-mid) {
+      font-size: 100%;
+      float: right;
+    }
+  }
+}
