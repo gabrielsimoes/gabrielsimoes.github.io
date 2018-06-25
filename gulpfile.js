@@ -10,6 +10,7 @@ var fs = require('fs');
 var gulp = require('gulp');
 var ghpages = require('gh-pages');
 var hljs = require('highlight.js');
+var htmlmin = require('gulp-htmlmin');
 var imagemin = require('gulp-imagemin');
 var md = require('markdown-it')({
   html: true,
@@ -59,16 +60,11 @@ var Vinyl = require('vinyl');
 var webserver = require('gulp-webserver');
 var yaml = require('js-yaml');
 
-function getData(includeBooksAndTalks) {
+function getData() {
   var data = yaml.safeLoad(fs.readFileSync('notes/info.yaml'));
-
-  if (includeBooksAndTalks) {
-    data.books = yaml.safeLoad(fs.readFileSync('notes/books.yaml'));
-    data.talks = yaml.safeLoad(fs.readFileSync('notes/talks.yaml'));
-  }
-
+  data.books = yaml.safeLoad(fs.readFileSync('notes/books.yaml'));
+  data.talks = yaml.safeLoad(fs.readFileSync('notes/talks.yaml'));
   data.lastupdate = new Date();
-
   return data;
 }
 
@@ -81,6 +77,7 @@ function processPages(data) {
   data.articles = [];
 
   var articleFn = pug.compileFile('src/pug/article.pug');
+  var sorted = false;
 
   var baseUrl = url('https://' + data.site + '/');
   var feed = new RSS({
@@ -104,11 +101,25 @@ function processPages(data) {
     }
 
     if (file.extname == '.pug') {
-      data.articles.sort(function(a, b) {
-        if (a.date != b.date) return b.date.getTime() - a.date.getTime();
-        else if (a.title != b.title) return a.title > b.title ? -1 : 1;
-        else return 0;
-      });
+      if (!sorted) {
+        data.articles.sort(function(a, b) {
+          if (a.date != b.date) return b.date.getTime() - a.date.getTime();
+          else if (a.title != b.title) return a.title > b.title ? -1 : 1;
+          else return 0;
+        });
+
+        for (let book of data.books.read) book.type = 'book';
+        for (let talk of data.talks.watched) talk.type = 'talk';
+
+        data.rwlist = [].concat(data.books.read, data.talks.watched);
+        data.rwlist.sort(function(a, b) {
+          if (a.date != b.date) return b.date.getTime() - a.date.getTime();
+          else if (a.title != b.title) return a.title > b.title ? -1 : 1;
+          else return 0;
+        });
+
+        sorted = true;
+      }
 
       let locals = Object.assign(Object.create(data), { filename: file.path });
 
@@ -153,7 +164,7 @@ function processPages(data) {
 }
 
 gulp.task('pages', function() {
-  var data = getData(true);
+  var data = getData();
 
   return gulp.src([
     'notes/*/**/*.md',
@@ -162,6 +173,7 @@ gulp.task('pages', function() {
     'src/pug/{index,blog,archive,reading-watching-list}.pug'
   ]).pipe(plumber())
     .pipe(processPages(data))
+    .pipe(htmlmin())
     .pipe(gulp.dest('dist/'));
 });
 

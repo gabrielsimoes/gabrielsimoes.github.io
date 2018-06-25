@@ -12,11 +12,10 @@ html(lang="en")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans" media="all")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css" media="all")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" media="all")
-    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/gruvbox-dark.css" media="all")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.10.0/styles/gruvbox-dark.min.css" media="all")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-line-icons@2.4.1/css/simple-line-icons.min.css" media="all")
     
     link(rel="stylesheet" href="/style.css" media="all")
-      
-    script(src="/script.js")
   body
     header
       .header-top
@@ -25,16 +24,38 @@ html(lang="en")
         p.my-occupation #{occupation}
 
       nav
-        ul
-          li
-            a.item-content(href="/") Home
-          li
-            a.item-content(href="/blog.html") Blog
-          li
-            a.item-content(href="/reading-watching-list.html") Reading/Watching List
+        ul.nav-menu
+          li.nav-item
+            a.nav-item-content(href="/") Home
+          li.nav-item
+            a.nav-item-content(href="/blog.html") Blog
+          li.nav-item
+            a.nav-item-content(href="/reading-watching-list.html") Reading/Watching List
+          
+        .cv-wrapper
+          a.cv-btn(href="cv.pdf")
+            span.icon-doc
+              |  My CV
+        
+        .social-list-wrapper
+          ul.social-list
+            mixin social(title, url, icon)
+              li.social-item(title=title)
+                a(href= url)
+                  span&attributes({class: "social-icon " + icon})
+            
+            +social(email, "mailto:" + email, "icon-envelope")
+            +social(github, "https://github.com/" + github, "icon-social-github")
+            +social(facebook, "https://facebook.com/" + facebook, "icon-social-facebook")
+            +social(site, 'https://'+site, "icon-globe")
+            +social('Atom Feed', '/atom.xml', "icon-feed")
+            +social(place, '#', "icon-location-pin")
 
     main.markdown-body
       block main
 
     footer
-      = 'Site last updated: ' + lastupdate.toUTCString() + '.'
+      = "Site last updated: " + lastupdate.toUTCString() + "."
+
+    script(src="/script.js")
+    script(src="https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js")
