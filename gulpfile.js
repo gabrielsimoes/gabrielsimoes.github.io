@@ -5,15 +5,16 @@ var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 var del = require('del');
 var env = require('gulp-environment');
+var Feed = require('feed');
 var frontmatter = require('front-matter');
 var fs = require('fs');
 var gulp = require('gulp');
 var ghpages = require('gh-pages');
 var hljs = require('highlight.js');
-var htmlmin = require('gulp-htmlmin');
 var imagemin = require('gulp-imagemin');
 var md = require('markdown-it')({
   html: true,
+  xhtmlOut: true,
   linkify: true,
   typographer: true,
   highlight: function (str, lang) {
@@ -34,6 +35,7 @@ var md = require('markdown-it')({
   .use(require('markdown-it-task-lists'))
   .use(require('markdown-it-attrs'))
   .use(require('markdown-it-footnote'))
+  .use(require('markdown-it-inline-comments'))
   .use(require('markdown-it-anchor'), {
     permalink: true,
     permalinkClass: 'anchor',
@@ -48,16 +50,17 @@ var md = require('markdown-it')({
       return hash;
     }
   });
+var minify = require('html-minifier').minify;
 var plumber = require('gulp-plumber');
 var PluginError = require('plugin-error');
 var pug = require('pug');
-var RSS = require('rss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var through = require('through2');
 var uglify = require('gulp-uglify');
 var Vinyl = require('vinyl');
 var webserver = require('gulp-webserver');
+var xmlbuilder = require('xmlbuilder');
 var yaml = require('js-yaml');
 
 function getData() {
@@ -69,7 +72,13 @@ function getData() {
 }
 
 function url(...paths) {
-  return paths.join('/').replace(/([^:]\/)\/+/g, '$1');
+  return paths.join('/').replace(/([^:]\/)\/+/g, '$1').replace(/^\/\//, '\/');
+}
+
+function compDateTitle(a, b) {
+  if (a.date != b.date) return b.date.getTime() - a.date.getTime();
+  else if (a.title != b.title) return a.title > b.title ? -1 : 1;
+  else return 0;
 }
 
 function processPages(data) {
@@ -78,16 +87,141 @@ function processPages(data) {
 
   var articleFn = pug.compileFile('src/pug/article.pug');
   var sorted = false;
-
   var baseUrl = url('https://' + data.site + '/');
-  var feed = new RSS({
-    title: data.name + ' at ' + data.site,
-    description: data.sitedescription,
-    feed_url: url(baseUrl, 'atom.xml'),
-    site_url: baseUrl,
-    image_url: url(baseUrl, 'me-rss.jpg').toString(),
-    language: 'en-us'
-  });
+
+  function sort() {
+    if (!sorted) {
+      data.articles.sort(compDateTitle);
+
+      for (let book of data.books.read) book.type = 'book';
+      for (let talk of data.talks.watched) talk.type = 'talk';
+
+      data.rwlist = [].concat(data.books.read, data.talks.watched);
+      data.rwlist.sort(compDateTitle);
+
+      sorted = true;
+    }
+  }
+
+  function processPug(file) {
+    sort();
+
+    let locals = Object.assign(Object.create(data), { filename: file.path });
+
+    file.contents = new Buffer(minify(pug.render(file.contents, locals), {collapseWhitespace: true}));
+    file.extname = '.html';
+
+    return file;
+  }
+
+  function processMarkdown(file) {
+    var matter = frontmatter(String(file.contents));
+    var content = md.render(matter.body);
+    var stats = fs.statSync(file.path);
+
+    file.extname = '.html';
+
+    var article = Object.assign(matter.attributes, {
+        url: url('/', file.relative),
+        content: content,
+        modified: new Date(stats.mtime)
+    });
+
+    var locals = Object.assign(Object.create(data), article);
+
+    file.contents = new Buffer(minify(articleFn(locals), {collapseWhitespace: true}));
+
+    data.articles.push(article);
+
+    return file;
+  }
+
+  function processFeed() {
+    sort();
+
+    var feed = new Feed({
+      title: data.name + ' at ' + data.site,
+      description: data.sitedescription,
+      id: baseUrl,
+      link: baseUrl,
+      image: url(baseUrl, 'me-rss.jpg'),
+      favicon: url(baseUrl, 'favicon.ico'),
+      feedLinks: {
+        atom: url(baseUrl, 'atom.xml')
+      },
+      author: {
+        name: data.name,
+        email: data.email,
+        link: baseUrl
+      }
+    });
+
+    for (let article of data.articles) {
+      let item = {
+        title: article.title,
+        date: article.date,
+        id: url(baseUrl, article.url),
+        link: url(baseUrl, article.url),
+        content: absolutify(article.content, baseUrl)
+      };
+
+      if (article.subtitle) item.description = article.subtitle;
+      if (article.image) item.image = url(baseUrl, article.image);
+
+      feed.addItem(item);
+    }
+
+    return new Vinyl({
+      cwd: '/',
+      base: '/',
+      path: '/atom.xml',
+      contents: new Buffer(feed.atom1())
+    });
+
+    // Start building feed
+    // var feed = xmlbuilder.create('rss')
+    //                      .att('xmlns:atom', 'http://www.w3.org/2005/Atom')
+    //                      .att('version', '2.0')
+    //                      .ele('channel');
+    //
+    // // Website information
+    // feed.ele('title', {}, data.name + ' at ' + data.site);
+    // feed.ele('subtitle', {}, data.sitedescription);
+    // feed.ele('id', {}, baseUrl);
+    // feed.ele('link', {}, baseUrl);
+    // feed.ele('link', {rel: 'self'}, url(baseUrl, 'atom.xml'));
+    // feed.ele('updated', {}, new Date().toISOString());
+    // feed.ele('icon', {}, url(baseUrl, 'me-rss.jpg'));
+    // var author = feed.ele('author')
+    //   .ele('name', {}, data.name).up()
+    //   .ele('email', {}, data.email);
+    //
+    // for (let article of data.articles) {
+    //   let entry = feed.ele('entry');
+    //
+    //   entry.ele('title', {}, article.title);
+    //   entry.ele('id', {}, url(baseUrl, article.url));
+    //   entry.ele('updated', {}, article.modified.toISOString());
+    //   entry.ele('published', {}, article.date.toISOString());
+    //   entry.ele('link', {}, url(baseUrl, article.url));
+    //   if (article.subtitle) entry.ele('summary', {}, article.subtitle);
+    //   if (article.image) entry.ele('image', {}, url(baseUrl, article.image));
+    //   entry.ele('content').dat(absolutify(article.content, baseUrl));
+    // }
+    //
+    // return new Vinyl({
+    //   cwd: '/',
+    //   base: '/',
+    //   path: '/atom.xml',
+    //   contents: new Buffer(feed.end({
+    //               pretty: true,
+    //               indent: '  ',
+    //               newline: '\n',
+    //               allowEmpty: false,
+    //               spacebeforeslash: ''
+    //             }))
+    // });
+  }
 
   return through.obj(function(file, enc, callback) {
     if (file.isNull()) {
@@ -96,69 +230,22 @@ function processPages(data) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new PluginError('generatePages', 'Streams are not supported.'));
+      this.emit('error', new PluginError('processPages', 'Streams are not supported.'));
       return callback();
     }
 
     if (file.extname == '.pug') {
-      if (!sorted) {
-        data.articles.sort(function(a, b) {
-          if (a.date != b.date) return b.date.getTime() - a.date.getTime();
-          else if (a.title != b.title) return a.title > b.title ? -1 : 1;
-          else return 0;
-        });
-
-        for (let book of data.books.read) book.type = 'book';
-        for (let talk of data.talks.watched) talk.type = 'talk';
-
-        data.rwlist = [].concat(data.books.read, data.talks.watched);
-        data.rwlist.sort(function(a, b) {
-          if (a.date != b.date) return b.date.getTime() - a.date.getTime();
-          else if (a.title != b.title) return a.title > b.title ? -1 : 1;
-          else return 0;
-        });
-
-        sorted = true;
-      }
-
-      let locals = Object.assign(Object.create(data), { filename: file.path });
-
-      file.contents = new Buffer(pug.render(file.contents, locals));
-      file.extname = '.html';
+      this.push(processPug(file));
     } else if (file.extname == '.md') {
-      let matter = frontmatter(String(file.contents));
-      let content = md.render(matter.body);
-      let locals = Object.assign(Object.create(data), { content: content }, matter.attributes);
-
-      file.contents = new Buffer(articleFn(locals));
-      file.extname = '.html';
-
-      let article = Object.assign(matter.attributes, {
-        url: url('/', file.relative),
-      });
-
-      data.articles.push(article);
-
-      feed.item(Object.assign(article, {
-        author: data.name,
-        description: absolutify(content, baseUrl),
-        url: url(baseUrl, file.relative)
-      }));
+      this.push(processMarkdown(file));
     } else {
-      this.emit('error', new PluginError('generatePages', 'Unsupported file extension.'));
+      this.emit('error', new PluginError('processPages', 'Unsupported file extension.'));
       return callback();
     }
 
-    this.push(file);
     callback();
   }, function(callback) {
-    this.push(new Vinyl({
-      cwd: '/',
-      base: '/',
-      path: '/atom.xml',
-      contents: new Buffer(feed.xml())
-    }));
-
+    this.push(processFeed());
     callback();
   });
 }
@@ -173,7 +260,6 @@ gulp.task('pages', function() {
     'src/pug/{index,blog,archive,reading-watching-list}.pug'
   ]).pipe(plumber())
     .pipe(processPages(data))
-    .pipe(htmlmin())
     .pipe(gulp.dest('dist/'));
 });
 
