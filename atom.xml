@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gabriel Simões at gabrielsimoes.github.io]]></title><description><![CDATA[My personal blog about software development and more.]]></description><link>https://gabrielsimoes.github.io/<image><url>https://gabrielsimoes.github.io/me-rss.jpg</url><title>Gabriel Simões at gabrielsimoes.github.io</title><link>https://gabrielsimoes.github.io/</image><generator>RSS for Node</generator><lastbuilddate>Mon, 25 Jun 2018 13:24:41 GMT</lastbuilddate><atom:link href="https://gabrielsimoes.github.io/atom.xml" rel="self" type="application/rss+xml"><language><![CDATA[en-us]]></language><item><title><![CDATA[Generating a static site with Gulp]]></title><description><![CDATA[<h1 id="generating-a-static-site-with-gulp"><a class="anchor" href="https://gabrielsimoes.github.io//#generating-a-static-site-with-gulp" aria-hidden="true">¶</a> Generating a static site with Gulp</h1>
-]]></description><link>https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html<guid ispermalink="true">https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Sat, 16 Jun 2018 00:00:00 GMT</pubdate></item><item><title><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title><description><![CDATA[<h1 id="notes-on-you-dont-know-js-by-kyle-simpson"><a class="anchor" href="https://gabrielsimoes.github.io//#notes-on-you-dont-know-js-by-kyle-simpson" aria-hidden="true">¶</a> Notes on “You Don’t Know JS” by Kyle Simpson</h1>
-<p>The best way to understand and avoid language “gotchas” is by understanding what
+<?xml version="1.0" encoding="utf-8"?> <feed xmlns="http://www.w3.org/2005/Atom"><id>https://gabrielsimoes.github.io/</id><title>Gabriel Simões at gabrielsimoes.github.io</title><updated>2018-06-25T16:00:43Z</updated><generator>Feed for Node.js</generator><author><name>Gabriel Simões</name><email>simoes.sgabriel@gmail.com</email><uri>https://gabrielsimoes.github.io/</uri></author><link rel="alternate" href="https://gabrielsimoes.github.io/"><link rel="self" href="https://gabrielsimoes.github.io/atom.xml"><subtitle>My personal blog about software development and more.</subtitle><logo>https://gabrielsimoes.github.io/me-rss.jpg</logo><icon>https://gabrielsimoes.github.io/favicon.ico</icon><entry><title type="html"><![CDATA[Generating a static site with Gulp]]></title><id>https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html</id><link href="https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html"><updated>2018-06-16T00:00:00Z</updated></entry><entry><title type="html"><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title><id>https://gabrielsimoes.github.io/books/you-dont-know-js.html</id><link href="https://gabrielsimoes.github.io/books/you-dont-know-js.html"><updated>2018-06-07T00:00:00Z</updated><summary type="html"><![CDATA[A great book for learning JS internals.]]></summary><content type="html"><![CDATA[<p>The best way to understand and avoid language “gotchas” is by understanding what
 causes them. It’s also a great book to learn how to optimize your JS programs
 with very little effort.</p>
 <p>I have written a good amount of notes over all the six books. Some may find
@@ -837,8 +835,115 @@ statement.</li>
 </ul>
 <h2 id="es6-beyond"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-beyond" aria-hidden="true">¶</a> ES6 &amp; Beyond</h2>
 <p><em>I haven’t read this book yet.</em></p>
-]]></description><link>https://gabrielsimoes.github.io/books/you-dont-know-js.html<guid ispermalink="true">https://gabrielsimoes.github.io/books/you-dont-know-js.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Thu, 07 Jun 2018 00:00:00 GMT</pubdate></item><item><title><![CDATA[Notes on "Are We There Yet?" by Rich Hickey]]></title><description><![CDATA[<h1 id="notes-on-are-we-there-yet-by-rich-hickey"><a class="anchor" href="https://gabrielsimoes.github.io//#notes-on-are-we-there-yet-by-rich-hickey" aria-hidden="true">¶</a> Notes on “Are We There Yet?” by Rich Hickey</h1>
-<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction" aria-hidden="true">¶</a> Introduction</h2>
+]]></content></entry><entry><title type="html"><![CDATA[Notes on "The Value of Values" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/the-value-of-values.html</id><link href="https://gabrielsimoes.github.io/talks/the-value-of-values.html"><updated>2018-05-30T00:00:00Z</updated><summary type="html"><![CDATA[A talk by Rich Hickey about using immutable values over "places".]]></summary><content type="html"><![CDATA[<ul>
+<li><em>Values x Places</em></li>
+<li><em>Place has no role in an information model</em>, only in implementation</li>
+<li>Values are:
+<ul>
+<li>Immutable</li>
+<li>Don’t need methods (to be sent, for example)</li>
+</ul>
+</li>
+<li>Value advantages:
+<ul>
+<li>Can be shared freely</li>
+<li>Reproducible results
+<ul>
+<li><em>Reproduce failures without replicating states</em></li>
+</ul>
+</li>
+<li>Easy to fabricate (generate compliant values)</li>
+<li>Refuse to help you program imperatively</li>
+<li>Language independent</li>
+<li>Values aggregate to values (value + value = value)</li>
+<li>more stuff I didn’t take note…</li>
+</ul>
+</li>
+</ul>
+]]></content></entry><entry><title type="html"><![CDATA[Notes on "Simple Made Easy" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/simple-made-easy.html</id><link href="https://gabrielsimoes.github.io/talks/simple-made-easy.html"><updated>2018-05-29T00:00:00Z</updated><summary type="html"><![CDATA[A talk on functional programming ideas by Rich Hickey. Simple != Easy.]]></summary><content type="html"><![CDATA[<ul>
+<li>We should aim for simplicity because simplicity is a prerequisite for reliability.</li>
+<li>Simple != Easy.
+<ul>
+<li>“Easy” means “to be at hand”, “to be approachable”.</li>
+<li>“Simple” is the opposite of “complex” which means “being intertwined”, “being tied together”.</li>
+<li>“Simple” is about doing a single thing, not about doing it only once (cardinality).</li>
+</ul>
+</li>
+<li>What matters in software is: does the software do what is supposed to do? Is it of high quality? Can we rely on it? Can problems be fixed along the way? Can requirements change over time? The answers to these questions is what matters in writing software not the look and feel of the experience writing the code or the cultural implications of it.</li>
+<li>The benefits of simplicity are: ease of understanding, ease of change, ease of debugging, flexibility.</li>
+<li>Complex constructs: State, Object, Methods, Syntax, Inheritance, Switch/matching, Vars, Imperative loops, Actors, ORM, Conditionals.</li>
+<li>Simple constructs: Values, Functions, Namespaces, Data, Polymorphism, Managed refs, Set functions, Queues, Declarative data manipulation, Rules, Consistency.</li>
+<li>The following constructs are simpler:
+<ul>
+<li>Values: use final, persistent collections</li>
+<li>Functions: use stateless methods</li>
+<li>Namespaces: use a language with good support for namespaces</li>
+<li>Data: use maps, arrays, sets, XML, JSON, etc.</li>
+<li>Polymorphism: through protocols, type classes</li>
+<li>Managed Refs: Clojure, Haskell</li>
+<li>Set functions: via libraries</li>
+<li>Queues: via libraries</li>
+<li>Declarative data manipulation: via SQL, LINQ, Datalog</li>
+<li>Rules: via libraries or natively in Prolog</li>
+</ul>
+</li>
+<li>Build simple systems by:
+<ul>
+<li>Abstracting - design by answering questions related to what, who, when, where, why, and how.</li>
+<li>Choosing constructs that generate simple artifacts.</li>
+<li>Simplify by encapsulation.</li>
+</ul>
+</li>
+</ul>
+]]></content></entry><entry><title type="html"><![CDATA[Notes on "Hammock Driven Programming" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/hammock-driven-programming.html</id><link href="https://gabrielsimoes.github.io/talks/hammock-driven-programming.html"><updated>2018-05-28T00:00:00Z</updated><summary type="html"><![CDATA[Or how to solve problems/design programs/avoid bugs by Rich Hickey]]></summary><content type="html"><![CDATA[<ul>
+<li>Bugs are much cheaper to solve during design.</li>
+<li><em>Solve Problem</em> x <em>Create Features</em></li>
+<li>Features are results, not objectives.</li>
+<li>Solving the problem is what matters</li>
+</ul>
+<ol>
+<li>State the problem: say it out loud or write it down.</li>
+<li>Understand: facts, context, constraints.</li>
+</ol>
+<ul>
+<li>What you don’t know?</li>
+<li>Related problems out there?</li>
+</ul>
+<ol start="3">
+<li>Discern</li>
+</ol>
+<ul>
+<li>Problems &amp; tradeoffs in your solutions: technical, logical</li>
+<li>There should be questions</li>
+<li>More input the better: literature, search other solutions.</li>
+</ul>
+<ol start="4">
+<li>Focus</li>
+</ol>
+<ul>
+<li>Get away from computer</li>
+<li>Tradeoffs: balls will be dropped</li>
+</ul>
+<ol start="5">
+<li>Waking Mind x Background Mind</li>
+</ol>
+<ul>
+<li>Waking should feed Background.</li>
+<li>Make a problem  a days’ agenda to feed it into your background.</li>
+<li>Analyze Background output with Waking.</li>
+</ul>
+<ol start="6">
+<li>There is a 7±2 concorruent problem limit on the mind.</li>
+</ol>
+<ul>
+<li>Write the problem down, possibly with pictures.</li>
+</ul>
+<ol start="7">
+<li>Hammock time: NO INPUT! Close your eyes - recall the problem in your imagination.</li>
+<li>Wait before getting to work.</li>
+</ol>
+]]></content></entry><entry><title type="html"><![CDATA[Notes on "Are We There Yet?" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/are-we-there-yet.html</id><link href="https://gabrielsimoes.github.io/talks/are-we-there-yet.html"><updated>2018-05-07T00:00:00Z</updated><summary type="html"><![CDATA[Amazing talk by Rich Hickey on fundamental Clojure and Functional Programming concurrency concepts.
+]]></summary><content type="html"><![CDATA[<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction" aria-hidden="true">¶</a> Introduction</h2>
 <ul>
 <li>All OO languages have fundamental things in common:
 <ul>
@@ -900,7 +1005,7 @@ statement.</li>
 <li>Action and Perception are two different things.</li>
 </ul>
 <h2 id="epochal-time-model"><a class="anchor" href="https://gabrielsimoes.github.io//#epochal-time-model" aria-hidden="true">¶</a> Epochal Time Model</h2>
-<p><img src="are-we-there-yet-epochal-time-model.png" alt="Epochal Time Model"></p>
+<p><img src="are-we-there-yet-epochal-time-model.png" alt="Epochal Time Model" /></p>
 <ul>
 <li>A point in time is a value - it can’t be changed.</li>
 <li>Our program is still organized in identities (succession of states).</li>
@@ -938,139 +1043,29 @@ statement.</li>
 </li>
 </ul>
 <h2 id="cas-compare-and-swap-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#cas-compare-and-swap-as-a-time-construct" aria-hidden="true">¶</a> CAS (Compare and Swap) as a Time Construct.</h2>
-<p><img src="are-we-there-yet-cas.png" alt="CAS"></p>
+<p><img src="are-we-there-yet-cas.png" alt="CAS" /></p>
 <ul>
 <li>Uncoordinated 1:1.</li>
 <li>Replaces state based on comparisons.</li>
 </ul>
 <h2 id="agents-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#agents-as-a-time-construct" aria-hidden="true">¶</a> Agents as a Time Construct</h2>
-<p><img src="are-we-there-yet-agents.png" alt="Agents"></p>
+<p><img src="are-we-there-yet-agents.png" alt="Agents" /></p>
 <ul>
 <li>Uncoordinated 1:1.</li>
 <li>Replaces state based on a queue through a thread pool.</li>
 </ul>
 <h2 id="stm-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#stm-as-a-time-construct" aria-hidden="true">¶</a> STM as a Time Construct</h2>
-<p><img src="are-we-there-yet-stm-1.png" alt="STM"></p>
+<p><img src="are-we-there-yet-stm-1.png" alt="STM" /></p>
 <ul>
 <li>Multiple timelines in the same app.</li>
 <li>A single transaction affects multiple timelines.</li>
 <li>ACI properties of ACID.</li>
 </ul>
-<p><img src="are-we-there-yet-stm-1.png" alt="STM Perception"></p>
+<p><img src="are-we-there-yet-stm-1.png" alt="STM Perception" /></p>
 <ul>
 <li>Using a system that uses MVCC (Multi Version Concurrency Control), it is
 possible to percept snapshots.</li>
 <li>Keep history in order to satisfy readers.</li>
 <li>It allows readers to have their own notions of a timeline.</li>
 </ul>
-]]></description><link>https://gabrielsimoes.github.io/talks/are-we-there-yet.html<guid ispermalink="true">https://gabrielsimoes.github.io/talks/are-we-there-yet.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Mon, 07 May 2018 00:00:00 GMT</pubdate></item><item><title><![CDATA[Notes on "Hammock Driven Programming" by Rich Hickey]]></title><description><![CDATA[<h1 id="notes-on-hammock-driven-programming-by-rich-hickey"><a class="anchor" href="https://gabrielsimoes.github.io//#notes-on-hammock-driven-programming-by-rich-hickey" aria-hidden="true">¶</a> Notes on “Hammock Driven Programming” by Rich Hickey</h1>
-<ul>
-<li>Bugs are much cheaper to solve during design.</li>
-<li><em>Solve Problem</em> x <em>Create Features</em></li>
-<li>Features are results, not objectives.</li>
-<li>Solving the problem is what matters</li>
-</ul>
-<ol>
-<li>State the problem: say it out loud or write it down.</li>
-<li>Understand: facts, context, constraints.</li>
-</ol>
-<ul>
-<li>What you don’t know?</li>
-<li>Related problems out there?</li>
-</ul>
-<ol start="3">
-<li>Discern</li>
-</ol>
-<ul>
-<li>Problems &amp; tradeoffs in your solutions: technical, logical</li>
-<li>There should be questions</li>
-<li>More input the better: literature, search other solutions.</li>
-</ul>
-<ol start="4">
-<li>Focus</li>
-</ol>
-<ul>
-<li>Get away from computer</li>
-<li>Tradeoffs: balls will be dropped</li>
-</ul>
-<ol start="5">
-<li>Waking Mind x Background Mind</li>
-</ol>
-<ul>
-<li>Waking should feed Background.</li>
-<li>Make a problem  a days’ agenda to feed it into your background.</li>
-<li>Analyze Background output with Waking.</li>
-</ul>
-<ol start="6">
-<li>There is a 7±2 concorruent problem limit on the mind.</li>
-</ol>
-<ul>
-<li>Write the problem down, possibly with pictures.</li>
-</ul>
-<ol start="7">
-<li>Hammock time: NO INPUT! Close your eyes - recall the problem in your imagination.</li>
-<li>Wait before getting to work.</li>
-</ol>
-]]></description><link>https://gabrielsimoes.github.io/talks/hammock-driven-programming.html<guid ispermalink="true">https://gabrielsimoes.github.io/talks/hammock-driven-programming.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Mon, 28 May 2018 00:00:00 GMT</pubdate></item><item><title><![CDATA[Notes on "Simple Made Easy" by Rich Hickey]]></title><description><![CDATA[<h1 id="notes-on-simple-made-easy-by-rich-hickey"><a class="anchor" href="https://gabrielsimoes.github.io//#notes-on-simple-made-easy-by-rich-hickey" aria-hidden="true">¶</a> Notes on “Simple Made Easy” by Rich Hickey</h1>
-<ul>
-<li>We should aim for simplicity because simplicity is a prerequisite for reliability.</li>
-<li>Simple != Easy.
-<ul>
-<li>“Easy” means “to be at hand”, “to be approachable”.</li>
-<li>“Simple” is the opposite of “complex” which means “being intertwined”, “being tied together”.</li>
-<li>“Simple” is about doing a single thing, not about doing it only once (cardinality).</li>
-</ul>
-</li>
-<li>What matters in software is: does the software do what is supposed to do? Is it of high quality? Can we rely on it? Can problems be fixed along the way? Can requirements change over time? The answers to these questions is what matters in writing software not the look and feel of the experience writing the code or the cultural implications of it.</li>
-<li>The benefits of simplicity are: ease of understanding, ease of change, ease of debugging, flexibility.</li>
-<li>Complex constructs: State, Object, Methods, Syntax, Inheritance, Switch/matching, Vars, Imperative loops, Actors, ORM, Conditionals.</li>
-<li>Simple constructs: Values, Functions, Namespaces, Data, Polymorphism, Managed refs, Set functions, Queues, Declarative data manipulation, Rules, Consistency.</li>
-<li>The following constructs are simpler:
-<ul>
-<li>Values: use final, persistent collections</li>
-<li>Functions: use stateless methods</li>
-<li>Namespaces: use a language with good support for namespaces</li>
-<li>Data: use maps, arrays, sets, XML, JSON, etc.</li>
-<li>Polymorphism: through protocols, type classes</li>
-<li>Managed Refs: Clojure, Haskell</li>
-<li>Set functions: via libraries</li>
-<li>Queues: via libraries</li>
-<li>Declarative data manipulation: via SQL, LINQ, Datalog</li>
-<li>Rules: via libraries or natively in Prolog</li>
-</ul>
-</li>
-<li>Build simple systems by:
-<ul>
-<li>Abstracting - design by answering questions related to what, who, when, where, why, and how.</li>
-<li>Choosing constructs that generate simple artifacts.</li>
-<li>Simplify by encapsulation.</li>
-</ul>
-</li>
-</ul>
-]]></description><link>https://gabrielsimoes.github.io/talks/simple-made-easy.html<guid ispermalink="true">https://gabrielsimoes.github.io/talks/simple-made-easy.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Tue, 29 May 2018 00:00:00 GMT</pubdate></item><item><title><![CDATA[Notes on "The Value of Values" by Rich Hickey]]></title><description><![CDATA[<h1 id="notes-on-the-value-of-values-by-rich-hickey"><a class="anchor" href="https://gabrielsimoes.github.io//#notes-on-the-value-of-values-by-rich-hickey" aria-hidden="true">¶</a> Notes on “The Value of Values” by Rich Hickey</h1>
-<ul>
-<li><em>Values x Places</em></li>
-<li><em>Place has no role in an information model</em>, only in implementation</li>
-<li>Values are:
-<ul>
-<li>Immutable</li>
-<li>Don’t need methods (to be sent, for example)</li>
-</ul>
-</li>
-<li>Value advantages:
-<ul>
-<li>Can be shared freely</li>
-<li>Reproducible results
-<ul>
-<li><em>Reproduce failures without replicating states</em></li>
-</ul>
-</li>
-<li>Easy to fabricate (generate compliant values)</li>
-<li>Refuse to help you program imperatively</li>
-<li>Language independent</li>
-<li>Values aggregate to values (value + value = value)</li>
-<li>more stuff I didn’t take note…</li>
-</ul>
-</li>
-</ul>
-]]></description><link>https://gabrielsimoes.github.io/talks/the-value-of-values.html<guid ispermalink="true">https://gabrielsimoes.github.io/talks/the-value-of-values.html</guid><dc:creator><![CDATA[Gabriel Simões]]></dc:creator><pubdate>Wed, 30 May 2018 00:00:00 GMT</pubdate></item></channel></rss>
+]]></content></entry></feed>
