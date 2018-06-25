@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?> <feed xmlns="http://www.w3.org/2005/Atom"><id>https://gabrielsimoes.github.io/</id><title>Gabriel Simões at gabrielsimoes.github.io</title><updated>2018-06-25T16:00:43Z</updated><generator>Feed for Node.js</generator><author><name>Gabriel Simões</name><email>simoes.sgabriel@gmail.com</email><uri>https://gabrielsimoes.github.io/</uri></author><link rel="alternate" href="https://gabrielsimoes.github.io/"><link rel="self" href="https://gabrielsimoes.github.io/atom.xml"><subtitle>My personal blog about software development and more.</subtitle><logo>https://gabrielsimoes.github.io/me-rss.jpg</logo><icon>https://gabrielsimoes.github.io/favicon.ico</icon><entry><title type="html"><![CDATA[Generating a static site with Gulp]]></title><id>https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html</id><link href="https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html"><updated>2018-06-16T00:00:00Z</updated></entry><entry><title type="html"><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title><id>https://gabrielsimoes.github.io/books/you-dont-know-js.html</id><link href="https://gabrielsimoes.github.io/books/you-dont-know-js.html"><updated>2018-06-07T00:00:00Z</updated><summary type="html"><![CDATA[A great book for learning JS internals.]]></summary><content type="html"><![CDATA[<p>The best way to understand and avoid language “gotchas” is by understanding what
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://gabrielsimoes.github.io/</id>
+    <title>Gabriel Simões at gabrielsimoes.github.io</title>
+    <updated>2018-06-25T17:08:38Z</updated>
+    <generator>Feed for Node.js</generator>
+    <author>
+        <name>Gabriel Simões</name>
+        <email>simoes.sgabriel@gmail.com</email>
+        <uri>https://gabrielsimoes.github.io/</uri>
+    </author>
+    <link rel="alternate" href="https://gabrielsimoes.github.io/"/>
+    <link rel="self" href="https://gabrielsimoes.github.io/atom.xml"/>
+    <subtitle>My personal blog about software development and more.</subtitle>
+    <logo>https://gabrielsimoes.github.io/me-rss.jpg</logo>
+    <icon>https://gabrielsimoes.github.io/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Generating a static site with Gulp]]></title>
+        <id>https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html</id>
+        <link href="https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html">
+        </link>
+        <updated>2018-06-16T00:00:00Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title>
+        <id>https://gabrielsimoes.github.io/books/you-dont-know-js.html</id>
+        <link href="https://gabrielsimoes.github.io/books/you-dont-know-js.html">
+        </link>
+        <updated>2018-06-07T00:00:00Z</updated>
+        <summary type="html"><![CDATA[A great book for learning JS internals.]]></summary>
+        <content type="html"><![CDATA[<p>The best way to understand and avoid language “gotchas” is by understanding what
 causes them. It’s also a great book to learn how to optimize your JS programs
 with very little effort.</p>
 <p>I have written a good amount of notes over all the six books. Some may find
@@ -835,7 +865,16 @@ statement.</li>
 </ul>
 <h2 id="es6-beyond"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-beyond" aria-hidden="true">¶</a> ES6 &amp; Beyond</h2>
 <p><em>I haven’t read this book yet.</em></p>
-]]></content></entry><entry><title type="html"><![CDATA[Notes on "The Value of Values" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/the-value-of-values.html</id><link href="https://gabrielsimoes.github.io/talks/the-value-of-values.html"><updated>2018-05-30T00:00:00Z</updated><summary type="html"><![CDATA[A talk by Rich Hickey about using immutable values over "places".]]></summary><content type="html"><![CDATA[<ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Notes on "The Value of Values" by Rich Hickey]]></title>
+        <id>https://gabrielsimoes.github.io/talks/the-value-of-values.html</id>
+        <link href="https://gabrielsimoes.github.io/talks/the-value-of-values.html">
+        </link>
+        <updated>2018-05-30T00:00:00Z</updated>
+        <summary type="html"><![CDATA[A talk by Rich Hickey about using immutable values over "places".]]></summary>
+        <content type="html"><![CDATA[<ul>
 <li><em>Values x Places</em></li>
 <li><em>Place has no role in an information model</em>, only in implementation</li>
 <li>Values are:
@@ -860,7 +899,16 @@ statement.</li>
 </ul>
 </li>
 </ul>
-]]></content></entry><entry><title type="html"><![CDATA[Notes on "Simple Made Easy" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/simple-made-easy.html</id><link href="https://gabrielsimoes.github.io/talks/simple-made-easy.html"><updated>2018-05-29T00:00:00Z</updated><summary type="html"><![CDATA[A talk on functional programming ideas by Rich Hickey. Simple != Easy.]]></summary><content type="html"><![CDATA[<ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Notes on "Simple Made Easy" by Rich Hickey]]></title>
+        <id>https://gabrielsimoes.github.io/talks/simple-made-easy.html</id>
+        <link href="https://gabrielsimoes.github.io/talks/simple-made-easy.html">
+        </link>
+        <updated>2018-05-29T00:00:00Z</updated>
+        <summary type="html"><![CDATA[A talk on functional programming ideas by Rich Hickey. Simple != Easy.]]></summary>
+        <content type="html"><![CDATA[<ul>
 <li>We should aim for simplicity because simplicity is a prerequisite for reliability.</li>
 <li>Simple != Easy.
 <ul>
@@ -895,7 +943,16 @@ statement.</li>
 </ul>
 </li>
 </ul>
-]]></content></entry><entry><title type="html"><![CDATA[Notes on "Hammock Driven Programming" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/hammock-driven-programming.html</id><link href="https://gabrielsimoes.github.io/talks/hammock-driven-programming.html"><updated>2018-05-28T00:00:00Z</updated><summary type="html"><![CDATA[Or how to solve problems/design programs/avoid bugs by Rich Hickey]]></summary><content type="html"><![CDATA[<ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Notes on "Hammock Driven Programming" by Rich Hickey]]></title>
+        <id>https://gabrielsimoes.github.io/talks/hammock-driven-programming.html</id>
+        <link href="https://gabrielsimoes.github.io/talks/hammock-driven-programming.html">
+        </link>
+        <updated>2018-05-28T00:00:00Z</updated>
+        <summary type="html"><![CDATA[Or how to solve problems/design programs/avoid bugs by Rich Hickey]]></summary>
+        <content type="html"><![CDATA[<ul>
 <li>Bugs are much cheaper to solve during design.</li>
 <li><em>Solve Problem</em> x <em>Create Features</em></li>
 <li>Features are results, not objectives.</li>
@@ -942,8 +999,17 @@ statement.</li>
 <li>Hammock time: NO INPUT! Close your eyes - recall the problem in your imagination.</li>
 <li>Wait before getting to work.</li>
 </ol>
-]]></content></entry><entry><title type="html"><![CDATA[Notes on "Are We There Yet?" by Rich Hickey]]></title><id>https://gabrielsimoes.github.io/talks/are-we-there-yet.html</id><link href="https://gabrielsimoes.github.io/talks/are-we-there-yet.html"><updated>2018-05-07T00:00:00Z</updated><summary type="html"><![CDATA[Amazing talk by Rich Hickey on fundamental Clojure and Functional Programming concurrency concepts.
-]]></summary><content type="html"><![CDATA[<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction" aria-hidden="true">¶</a> Introduction</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Notes on "Are We There Yet?" by Rich Hickey]]></title>
+        <id>https://gabrielsimoes.github.io/talks/are-we-there-yet.html</id>
+        <link href="https://gabrielsimoes.github.io/talks/are-we-there-yet.html">
+        </link>
+        <updated>2018-05-07T00:00:00Z</updated>
+        <summary type="html"><![CDATA[Amazing talk by Rich Hickey on fundamental Clojure and Functional Programming concurrency concepts.
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction" aria-hidden="true">¶</a> Introduction</h2>
 <ul>
 <li>All OO languages have fundamental things in common:
 <ul>
@@ -1068,4 +1134,6 @@ possible to percept snapshots.</li>
 <li>Keep history in order to satisfy readers.</li>
 <li>It allows readers to have their own notions of a timeline.</li>
 </ul>
-]]></content></entry></feed>
+]]></content>
+    </entry>
+</feed>
