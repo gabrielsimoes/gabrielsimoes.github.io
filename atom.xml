@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2018-06-26T02:38:10Z</updated>
+    <updated>2018-06-26T13:48:41Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simões</name>
@@ -14,13 +14,6 @@
     <subtitle>My personal blog about software development and more.</subtitle>
     <logo>https://gabrielsimoes.github.io/me-rss.jpg</logo>
     <icon>https://gabrielsimoes.github.io/favicon.ico</icon>
-    <entry>
-        <title type="html"><![CDATA[Generating a static site with Gulp]]></title>
-        <id>https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html</id>
-        <link href="https://gabrielsimoes.github.io/articles/generating-a-static-site-with-gulp.html">
-        </link>
-        <updated>2018-06-16T00:00:00Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title>
         <id>https://gabrielsimoes.github.io/books/you-dont-know-js.html</id>
