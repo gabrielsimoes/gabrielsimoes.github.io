@@ -1,15 +1,4 @@
-$bg-header: #aa4b41;
-$fg-header: #ffffff;
-$bg-main: #ffffff;
-$fg-main: #000000;
-$fg-footer: #6a737d;
-$details: darken($bg-header, 10);
-$link: #3273dc;
-
-// $break-mid: 600px;
-$break-mid: 849px;
-$break-large: 850px;
-
+@import "variables";
 @import "base";
 @import "structure";
 @import "about";
