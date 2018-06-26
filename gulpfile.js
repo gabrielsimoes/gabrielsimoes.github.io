@@ -116,11 +116,16 @@ function processPages(data) {
     }));
     file.extname = '.html';
 
-    return file;
+    this.push(file);
   }
 
   function processMarkdown(file) {
     var matter = frontmatter(String(file.contents));
+
+    if (matter.attributes.draft) {
+      return;
+    }
+
     var content = md.render(matter.body);
     var stats = fs.statSync(file.path);
 
@@ -141,7 +146,7 @@ function processPages(data) {
 
     data.articles.push(article);
 
-    return file;
+    this.push(file);
   }
 
   function processFeed() {
@@ -179,12 +184,12 @@ function processPages(data) {
       feed.addItem(item);
     }
 
-    return new Vinyl({
+    this.push(new Vinyl({
       cwd: '/',
       base: '/',
       path: '/atom.xml',
       contents: new Buffer(feed.atom1())
-    });
+    }));
 
     // Start building feed
     // var feed = xmlbuilder.create('rss')
@@ -243,9 +248,9 @@ function processPages(data) {
     }
 
     if (file.extname == '.pug') {
-      this.push(processPug(file));
+      processPug.call(this, file);
     } else if (file.extname == '.md') {
-      this.push(processMarkdown(file));
+      processMarkdown.call(this, file);
     } else {
       this.emit('error', new PluginError('processPages', 'Unsupported file extension.'));
       return callback();
@@ -253,7 +258,7 @@ function processPages(data) {
 
     callback();
   }, function(callback) {
-    this.push(processFeed());
+    processFeed.call(this);
     callback();
   });
 }
