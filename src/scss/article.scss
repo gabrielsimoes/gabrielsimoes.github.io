@@ -1,10 +1,23 @@
+.article-header {
+  line-height: 1.2;
+}
+
 .article-title {
-  // nothing special besides an h1 header
+  margin: 0;
+  border: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.article-subtitle {
+  margin: 0;
+  margin-top: -.2em;
+  font-size: 1.3em;
+  border: 0;
 }
 
 .article-date {
-  margin-left: .8rem;
+  margin: .3em 0 1.5em 0;
   font-size: 1.1rem;
-  font-weight: 400;
   color: lighten($fg-main, 40);
 }
