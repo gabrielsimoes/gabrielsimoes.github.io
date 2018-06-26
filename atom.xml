@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2018-06-26T13:48:41Z</updated>
+    <updated>2018-06-26T15:27:34Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simões</name>
@@ -14,6 +14,113 @@
     <subtitle>My personal blog about software development and more.</subtitle>
     <logo>https://gabrielsimoes.github.io/me-rss.jpg</logo>
     <icon>https://gabrielsimoes.github.io/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Generating a static blog with Gulp]]></title>
+        <id>https://gabrielsimoes.github.io/articles/generating-a-static-blog-with-gulp.html</id>
+        <link href="https://gabrielsimoes.github.io/articles/generating-a-static-blog-with-gulp.html">
+        </link>
+        <updated>2018-06-26T00:00:00Z</updated>
+        <summary type="html"><![CDATA[Or how this website as created.]]></summary>
+        <content type="html"><![CDATA[<p>So, I’m starting my personal blog, and of course the first step was to actually
+build it. I had heard about things like <a href="https://jekyllrb.com/">Jekyll</a> and
+<a href="https://gohugo.io/">Hugo</a>, but I decided not to use them. Why? Well, using one
+of these tools isn’t nearly as fun and rewarding as building it from scratch.</p>
+<p style="width: 150px; float: right;"><img src="generating-a-static-blog-with-gulp.svg" alt="Gulp Logo" /></p>
+<p>Also, I wanted to do a couple more non-standard things, such as using the same
+datasource to build a reading/watching list and my PDF resume. So I thought
+those tools wouldn’t be aproppriate for that and I’d end up having to use two
+different tools where I could use just one.</p>
+<h2 id="tools-and-project-structure"><a class="anchor" href="https://gabrielsimoes.github.io//#tools-and-project-structure" aria-hidden="true">¶</a> Tools and project structure</h2>
+<p>Now, let’s talk about what I used:</p>
+<ul>
+<li><a href="https://gulpjs.com/">Gulp</a> for automating everything and wiring up the site
+generation. Gulp is also used to watch for changes while developing.</li>
+<li><a href="http://pugjs.org/">Pug</a> templating engine for creating the html structure.</li>
+<li><a href="https://sass-lang.com/">SCSS</a> to write CSS smartly.</li>
+<li><a href="https://github.com/markdown-it/markdown-it">markdown-it</a> for generating html
+from my markdown notes and articles. Also, a bunch of plugins to add support
+to code highlighting, latex, task lists, footnotes and heading anchors.</li>
+<li><a href="https://highlightjs.org/">highlight.js</a> together with markdown-it.</li>
+<li><a href="https://github.com/nodeca/js-yaml">js-yaml</a> to parse my YAML files with the
+information to generate the pages.
+<a href="https://github.com/GoogleChrome/puppeteer">puppeteer</a> to generate the PDF CV.</li>
+<li>A bunch of minifying tools.</li>
+</ul>
+<p>Project structure:</p>
+<pre><code class="language- hljs">├── dist
+├── node_modules
+├── notes
+│   ├── articles
+│   ├── books
+│   ├── talks
+│   ├── books.yaml
+│   ├── info.yaml
+│   └── talks.yaml
+├── src
+│   ├── img
+│   ├── js
+│   ├── other
+│   ├── pug
+│   └── scss
+├── gulpfile.js
+└── package.json
+</code></pre>
+<p>The hardest part of the project was creating a custom gulp plugin that would
+keep a list of all the blog posts and their front-matter info while it generates
+the pages, so that it would be possible to later generate a page with all the
+blog posts.</p>
+<p>If you are really interested into this, you should take a look at the <code>gulpfile.js</code>
+on the <a href="https://github.com/gabrielsimoes/gabrielsimoes.github.io">website source</a>.
+But basically I’m using a function that creates a closured <code>data</code> object using
+<code>js-yaml</code>. This function returns a gulp plugin that does the following: every
+time a markdown file arrives through the stream, it generates a page using the
+pug template, appends the frontmatter to the <code>data</code> object and pushes the file
+down the stream.</p>
+<h2 id="generating-the-pdf-resume"><a class="anchor" href="https://gabrielsimoes.github.io//#generating-the-pdf-resume" aria-hidden="true">¶</a> Generating the PDF Resume</h2>
+<p>The nicest part was using <a href="https://github.com/GoogleChrome/puppeteer">puppeteer</a>
+to generate the PDF resume. It seemed like a hard thing to do, but turned out to
+be quite simple. I just had to write a custom CSS for printing and write a very
+simple gulp task (it doesn’t use streams though, but there is no need for that):</p>
+<pre><code class="language-javascript hljs">gulp.task(<span class="hljs-string">'cv'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">callback</span>) </span>{
+  (<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">var</span> browser = <span class="hljs-keyword">await</span> puppeteer.launch({<span class="hljs-attr">args</span>: [<span class="hljs-string">'--no-sandbox'</span>, <span class="hljs-string">'--disable-setuid-sandbox'</span>]});
+    <span class="hljs-keyword">var</span> page = <span class="hljs-keyword">await</span> browser.newPage();
+    <span class="hljs-keyword">await</span> page.goto(<span class="hljs-string">'file://'</span> + path.join(__dirname, <span class="hljs-string">'dist/cv-page.html'</span>), {<span class="hljs-attr">waitUntil</span>: <span class="hljs-string">'networkidle2'</span>});
+    <span class="hljs-keyword">await</span> page.pdf({<span class="hljs-attr">path</span>: <span class="hljs-string">'dist/cv.pdf'</span>, <span class="hljs-attr">format</span>: <span class="hljs-string">'A4'</span>});
+
+    <span class="hljs-keyword">await</span> browser.close();
+
+    callback();
+  })();
+});
+</code></pre>
+<h2 id="deploying"><a class="anchor" href="https://gabrielsimoes.github.io//#deploying" aria-hidden="true">¶</a> Deploying</h2>
+<p>GitHub pages makes this a little harder than it could be, but nothing that we
+can’t handle. I created a <code>source</code> branch on the repo, and used it as the main
+branch, leaving the <code>master</code> branch as a totally separate branch where I’d
+commit the built website.</p>
+<p>Now, how to easily commit the contents of the <code>dist</code> folder to the branch? I
+used the <a href="https://github.com/tschaub/gh-pages">gh-pages</a> plugin, coupled with
+a simple gulp task:</p>
+<pre><code class="language-javascript hljs">gulp.task(<span class="hljs-string">'deploy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">callback</span>) </span>{
+  ghpages.publish(<span class="hljs-string">'dist/'</span>, {
+    <span class="hljs-attr">branch</span>: <span class="hljs-string">'master'</span>,
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'Update '</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toISOString()
+  }, callback);
+});
+</code></pre>
+<h2 id="closing-thoughts"><a class="anchor" href="https://gabrielsimoes.github.io//#closing-thoughts" aria-hidden="true">¶</a> Closing thoughts</h2>
+<p>Finally, I used <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>
+to find out potential improvements to the website and ended up implementing a
+a very simple Service Worker, which caches the static assets and front page. I
+simply followed existing guides on how to do that, particularly <a href="https://gist.github.com/adactio/fbaa3a5952774553f5e7">this one</a>.</p>
+<p>Plus some tweaks on the HTML files, and we got a really nice score:</p>
+<p><img src="generating-a-static-blog-with-gulp-lighthouse.png" alt="Lighthouse Score" /></p>
+<p>I’m really happy with the result, especially since I learned a lot about how
+Gulp really works and how to write plugins for it. I improved my usage of Pug
+and SCSS, and also learned to use Chrome’s Puppeteer.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Notes on "You Don't Know JS" by Kyle Simpson]]></title>
         <id>https://gabrielsimoes.github.io/books/you-dont-know-js.html</id>
