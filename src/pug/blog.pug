@@ -12,14 +12,15 @@ block main
       li.blog-item
         .blog-item-wrapper
           if article.image
-            img.blog-image(alt=article.title src=article.image)
-          span.date= article.date.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })
-          .title
+            img.blog-item-image(alt=article.title src=article.image)
+          span.blog-item-date
+            = article.date.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" })
+          .blog-item-title
             a(href=article.url)= article.title
           if article.subtitle
-            .subtitle=article.subtitle
+            .blog-item-subtitle=article.subtitle
           if article.tags
-            .tags
+            .blog-item-tags
               each tag in article.tags
-                span.tag= tag
+                span.blog-item-tag= tag
           

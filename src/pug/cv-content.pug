@@ -10,12 +10,12 @@
 mixin timeblock(item)
   .about-time-block
     if item.when
-      .about-time-block-date= item.when.toLocaleDateString("en", { year: "numeric"})
+      .about-time-block-date= item.when.toLocaleDateString("en", { timeZone: "UTC", year: "numeric"})
     else if item.start
       .about-time-block-date
-        =item.start.toLocaleDateString("en", { year: "numeric", month: "short"})
+        =item.start.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short"})
         if item.end
-          = " — " + item.end.toLocaleDateString("en", { year: "numeric", month: "short"})
+          = " — " + item.end.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short"})
         else
           = " — Now"
     .about-time-block-info
@@ -31,7 +31,7 @@ mixin timeblock(item)
       else
         +desc(item.what, item.where)
     if item.extra
-      .about-time-block-more= item.extra
+      .about-time-block-extra= item.extra
         
 .about-title Education
 .about-content
@@ -43,7 +43,7 @@ mixin timeblock(item)
   each item in work
     +timeblock(item)
     
-.about-title Awards
+.about-title Honors & Awards
 .about-content
   //- .about-subtitle International
   each item in awards.international

@@ -6,9 +6,10 @@ block title
 
 block main
   article
-    h1.article-title
-      = title
-      span.article-date= date.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })
+    .article-header
+      h1.article-title= title
+      p.article-subtitle= subtitle
+      p.article-date= date.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" })
     != content
     if subtitle
       .article-subtitle subtitle

@@ -12,7 +12,7 @@ block main
       ul.timeline
         each item in rwlist
           li.timeline-item
-            .timeline-date= item.date.toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" })
+            .timeline-date= item.date.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" })
             if item.type == "book"
               .timeline-icon.icon-book-open
             if item.type == "talk"
