@@ -53,7 +53,9 @@ var md = require('markdown-it')({
 var minify = require('html-minifier').minify;
 var plumber = require('gulp-plumber');
 var PluginError = require('plugin-error');
+var path = require('path');
 var pug = require('pug');
+var puppeteer = require('puppeteer');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var through = require('through2');
@@ -263,7 +265,7 @@ gulp.task('pages', function() {
     'notes/*/**/*.md',
     '!notes/personal/**/*',
     '!notes/personal',
-    'src/pug/{index,blog,archive,reading-watching-list}.pug'
+    'src/pug/{index,blog,archive,reading-watching-list,cv-page}.pug'
   ]).pipe(plumber())
     .pipe(processPages(data))
     .pipe(gulp.dest('dist/'));
@@ -287,7 +289,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('css', function() {
-  return gulp.src('src/scss/style.scss')
+  return gulp.src('src/scss/{style,cv}.scss')
     .pipe(plumber())
     .pipe(env.if.not.production(sourcemaps.init()))
     .pipe(sass().on('error', sass.logError))
@@ -319,13 +321,22 @@ gulp.task('other', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-// TODO: gulp.task('cv', function() {
-//   var data = getData(false);
-// });
+gulp.task('cv', function(callback) {
+  (async () => {
+    var browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    var page = await browser.newPage();
+    await page.goto('file://' + path.join(__dirname, 'dist/cv-page.html'), {waitUntil: 'networkidle2'});
+    await page.pdf({path: 'dist/cv.pdf', format: 'A4'});
 
-gulp.task('build-source', gulp.parallel('pages', 'js', 'css', 'other'))
+    await browser.close();
 
-gulp.task('build-images', gulp.parallel('pages-images', 'images'))
+    callback();
+  })();
+});
+
+gulp.task('build-source', gulp.series(gulp.parallel('pages', 'js', 'css', 'other'), 'cv'));
+
+gulp.task('build-images', gulp.parallel('pages-images', 'images'));
 
 gulp.task('build', gulp.parallel('build-source', 'build-images'));
 

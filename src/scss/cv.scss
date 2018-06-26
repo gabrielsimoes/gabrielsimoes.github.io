@@ -1,0 +1,100 @@
+@import 'variables';
+@import 'base';
+@import 'about';
+
+html {
+  margin: 0;
+
+  height: 100%;
+  line-height: 1.2;
+	font-size: 16px;
+  font-family: "Fira Sans", sans-serif, 'Fira Mono', monospace;
+}
+
+.cv-header {
+  padding: 2em 4em 2em 4em;
+  overflow: auto;
+
+  -webkit-print-color-adjust: exact;
+  background-color: $bg-header;
+  color: $fg-header;
+}
+
+.cv-image {
+  display: inline-block;
+  width: 15em;
+}
+
+.cv-info {
+  float: right;
+  width: 400px;
+  text-align: right;
+  display: inline-block;
+}
+
+p.cv-name {
+  margin-top: .5em;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+p.cv-occupation {
+  margin-top: -.8em;
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+  // font-weight: 600;
+  color: darken($fg-header, 5);
+}
+
+.cv-contact-list {
+  list-style: none;
+
+  li {
+    margin-top: 1em;
+  }
+
+  .icon {
+    position: relative;
+    top: .1em;
+    margin-left: .5em;
+    font-weight: 400;
+
+    color: black;
+    background: $fg-header;
+    padding: 3.5px;
+    border-radius: 50%;
+  }
+
+  a {
+    text-decoration: none;
+    color: $fg-header;
+
+
+  }
+}
+
+.cv-content {
+  margin: 1em 3em 2em 3em;
+}
+
+.about-title, .about-content {
+  margin-top: 2em;
+}
+
+.about-title {
+  display: inline-block;
+  width: 20%;
+  padding-left: 0;
+  vertical-align: top;
+}
+
+.about-content {
+  display: inline-block;
+  width: 80%;
+}
+
+.about-time-block-date {
+  padding-top: .1em;
+  font-size: 90% !important;
+  float: right;
+}
