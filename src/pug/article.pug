@@ -8,8 +8,7 @@ block main
   article
     .article-header
       h1.article-title= title
-      p.article-subtitle= subtitle
+      if subtitle
+        p.article-subtitle= subtitle
       p.article-date= date.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" })
     != content
-    if subtitle
-      .article-subtitle subtitle
