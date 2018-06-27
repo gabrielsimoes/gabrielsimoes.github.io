@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2018-06-26T15:30:06Z</updated>
+    <updated>2018-06-27T11:25:32Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simões</name>
@@ -119,6 +119,189 @@ simply followed existing guides on how to do that, particularly <a href="https:/
 <p>I’m really happy with the result, especially since I learned a lot about how
 Gulp really works and how to write plugins for it. I improved my usage of Pug
 and SCSS, and also learned to use Chrome’s Puppeteer.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Object-relational impedance mismatch]]></title>
+        <id>https://gabrielsimoes.github.io/talks/object-relational-impedance-mismatch.html</id>
+        <link href="https://gabrielsimoes.github.io/talks/object-relational-impedance-mismatch.html">
+        </link>
+        <updated>2018-06-26T00:00:00Z</updated>
+        <summary type="html"><![CDATA[An attempt to get this right.]]></summary>
+        <content type="html"><![CDATA[<p>This is smart name we came up to call the difficulties that arise when we try to
+couple together a RDBMS (namely SQL), and a Object-Oriented Language. We’ll
+first examine why this problem exists, and then take an attempt at solving it.</p>
+<h2 id="mismatches"><a class="anchor" href="https://gabrielsimoes.github.io//#mismatches" aria-hidden="true">¶</a> Mismatches</h2>
+<ul>
+<li>When exposing a object in a object-relational mapping, we violate some properties of objects, namely <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn1" id="fnref1">[1]</a></sup>:
+<ul>
+<li><strong>Encapsulation</strong>: object properties which are expected in OO to be unexposed are necessarily exposed.</li>
+<li><strong>Accessbility</strong>: the relational has no notion of private/public access – everything is public.</li>
+<li><strong>Interface, class, inheritance and polymorphism</strong> are unknown concepts in the relational model, as well as <strong>views</strong><sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn2" id="fnref2">[2]</a></sup> are something unknown to object orientation, which cannot be properly emulated with interfaces and methods. Still, the relational model has no notion of <strong>behaviour</strong>.</li>
+</ul>
+</li>
+<li>While OO <strong>structure</strong> is contructed based on links, and the relational model is made of global, unnested relation variables. Also, OO <strong>integrity</strong> is maintained through exceptions, while the relational model uses declarative contraints on the data.</li>
+<li>OO doesn’t have a small and well-defined set of <strong>maniplative operators</strong> like the relational model.</li>
+<li><strong>Transactions</strong> in the relational model can be very large and diverse, whereas in OO they are tipically made of individual assignments.</li>
+</ul>
+<h2 id="solving-the-problem-according-to-myself"><a class="anchor" href="https://gabrielsimoes.github.io//#solving-the-problem-according-to-myself" aria-hidden="true">¶</a> Solving the problem according to myself</h2>
+<p>I’ll be honest, my opinion is that there is no way to actually solve this problem. In my view the two solutions are:</p>
+<ul>
+<li>
+<p><strong>Using objects</strong>: Ditch relational databases. Use key-value stores,
+document databases or other NoSQL databases. Don’t use a relational database
+where it doesn’t fit quite well.</p>
+</li>
+<li>
+<p><strong>Using SQL</strong>: Use relational models as they were designed. Relational
+models are designed to <em>answer questions about your data</em>, not to simply
+store objects. In this case, you’re better of using a Functional Programming
+language.</p>
+<p>We still might have some problems due to mutable data. One way were this
+problem wouldn’t exist is when we have an append-only architecture, but check below for other ideas.</p>
+</li>
+</ul>
+<p>Stuart Halloway below describes a nice approach he uses in <a href="https://www.datomic.com/">Datomic</a>.
+In my view, his approach fits FP, but not OOP, even though he says otherwise.</p>
+<h2 id="solving-according-to-stuart-halloway-one-of-datomic-creators"><a class="anchor" href="https://gabrielsimoes.github.io//#solving-according-to-stuart-halloway-one-of-datomic-creators" aria-hidden="true">¶</a> Solving according to Stuart Halloway (one of Datomic creators)</h2>
+<ul>
+<li>
+<p>A nice table from a Stuart Halloway’s talk <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn3" id="fnref3">[3]</a></sup>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OO</th>
+<th>RDBMS</th>
+<th>We Want</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Processing</strong></td>
+<td>object at time</td>
+<td>set at a time</td>
+<td>both</td>
+</tr>
+<tr>
+<td><strong>Structure</strong></td>
+<td>dictionaries</td>
+<td>rectangles</td>
+<td>any</td>
+</tr>
+<tr>
+<td><strong>Access</strong></td>
+<td>navigation (pointers)</td>
+<td>query</td>
+<td>both</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>over here</td>
+<td>over there</td>
+<td>anywhere</td>
+</tr>
+<tr>
+<td><strong>Programmable?</strong></td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><strong>Perception</strong></td>
+<td>coordinated</td>
+<td>coordinated</td>
+<td><strong>VALUES</strong></td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td>assist use of tx system</td>
+<td>transaction</td>
+<td>any</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>The “over there” problem</strong>: many objects have to fetched at the same time
+because data could be changes out of the blue.</p>
+</li>
+<li>
+<p><strong>The “coordinated perception” problem</strong>: we have to use locks and stop
+everything to read data.</p>
+</li>
+<li>
+<p>We gotta simplify the two models in order to use them together.</p>
+</li>
+<li>
+<p>We can’t have everything from the OO and relational models.</p>
+</li>
+<li>
+<p><strong>VALUES</strong> are key to solving this problem. Data is made of values, not
+places. Data is immutable.</p>
+</li>
+<li>
+<p>The <a href="https://www.datomic.com/">Datomic</a> way:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Processing</strong></td>
+<td>any</td>
+</tr>
+<tr>
+<td><strong>Structure</strong></td>
+<td>any</td>
+</tr>
+<tr>
+<td><strong>Access</strong></td>
+<td>any</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>anywhere</td>
+</tr>
+<tr>
+<td><strong>Programmable?</strong></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><strong>Perception</strong></td>
+<td>values</td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td>txes + tx fns</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Bonuses</strong>:</p>
+<ul>
+<li>Time model (data from x time ago).</li>
+<li>Scale read and query horizontally.</li>
+<li>“What if” queries.</li>
+<li>Multi-source queries</li>
+</ul>
+</li>
+</ul>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch">Wikipedia article on the Object-relational impedance mismatch</a>. <a href="https://gabrielsimoes.github.io//#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/View_(SQL)">Wikipedia article on SQL Views</a>. <a href="https://gabrielsimoes.github.io//#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://www.infoq.com/presentations/Impedance-Mismatch">The Impedance Mismatch is Our Fault - Stuart Halloway</a>. <a href="https://gabrielsimoes.github.io//#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
     </entry>
     <entry>
