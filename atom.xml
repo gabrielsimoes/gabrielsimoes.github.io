@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2018-06-27T11:25:32Z</updated>
+    <updated>2018-06-27T11:34:41Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simões</name>
@@ -128,24 +128,37 @@ and SCSS, and also learned to use Chrome’s Puppeteer.</p>
         </link>
         <updated>2018-06-26T00:00:00Z</updated>
         <summary type="html"><![CDATA[An attempt to get this right.]]></summary>
-        <content type="html"><![CDATA[<p>This is smart name we came up to call the difficulties that arise when we try to
-couple together a RDBMS (namely SQL), and a Object-Oriented Language. We’ll
-first examine why this problem exists, and then take an attempt at solving it.</p>
+        <content type="html"><![CDATA[<p>This is the smart name we came up to call the difficulties that arise when we
+try to couple together a RDBMS (namely SQL), and an Object-Oriented design.
+We’ll first examine why this problem exists, and then take an attempt at
+solving it.</p>
 <h2 id="mismatches"><a class="anchor" href="https://gabrielsimoes.github.io//#mismatches" aria-hidden="true">¶</a> Mismatches</h2>
 <ul>
-<li>When exposing a object in a object-relational mapping, we violate some properties of objects, namely <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn1" id="fnref1">[1]</a></sup>:
+<li>When exposing a object in a object-relational mapping, we violate some
+properties of objects, namely <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn1" id="fnref1">[1]</a></sup>:
 <ul>
-<li><strong>Encapsulation</strong>: object properties which are expected in OO to be unexposed are necessarily exposed.</li>
-<li><strong>Accessbility</strong>: the relational has no notion of private/public access – everything is public.</li>
-<li><strong>Interface, class, inheritance and polymorphism</strong> are unknown concepts in the relational model, as well as <strong>views</strong><sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn2" id="fnref2">[2]</a></sup> are something unknown to object orientation, which cannot be properly emulated with interfaces and methods. Still, the relational model has no notion of <strong>behaviour</strong>.</li>
+<li><strong>Encapsulation</strong>: object properties which are expected in OO to be
+unexposed are necessarily exposed.</li>
+<li><strong>Accessbility</strong>: the relational has no notion of private/public access –
+everything is public.</li>
+<li><strong>Interface, class, inheritance and polymorphism</strong> are unknown concepts in
+the relational model, as well as <strong>views</strong><sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn2" id="fnref2">[2]</a></sup> are something unknown to
+object orientation, which cannot be properly emulated with interfaces and
+methods. Still, the relational model has no notion of <strong>behaviour</strong>.</li>
 </ul>
 </li>
-<li>While OO <strong>structure</strong> is contructed based on links, and the relational model is made of global, unnested relation variables. Also, OO <strong>integrity</strong> is maintained through exceptions, while the relational model uses declarative contraints on the data.</li>
-<li>OO doesn’t have a small and well-defined set of <strong>maniplative operators</strong> like the relational model.</li>
-<li><strong>Transactions</strong> in the relational model can be very large and diverse, whereas in OO they are tipically made of individual assignments.</li>
+<li>While OO <strong>structure</strong> is contructed based on links, and the relational model
+is made of global, unnested relation variables. Also, OO <strong>integrity</strong> is
+maintained through exceptions, while the relational model uses declarative
+contraints on the data.</li>
+<li>OO doesn’t have a small and well-defined set of <strong>maniplative operators</strong>
+like the relational model.</li>
+<li><strong>Transactions</strong> in the relational model can be very large and diverse,
+whereas in OO they are tipically made of individual assignments.</li>
 </ul>
 <h2 id="solving-the-problem-according-to-myself"><a class="anchor" href="https://gabrielsimoes.github.io//#solving-the-problem-according-to-myself" aria-hidden="true">¶</a> Solving the problem according to myself</h2>
-<p>I’ll be honest, my opinion is that there is no way to actually solve this problem. In my view the two solutions are:</p>
+<p>I’ll be honest. My opinion is that there is no way to actually solve this
+problem. In my view the two solutions are:</p>
 <ul>
 <li>
 <p><strong>Using objects</strong>: Ditch relational databases. Use key-value stores,
@@ -158,7 +171,13 @@ models are designed to <em>answer questions about your data</em>, not to simply
 store objects. In this case, you’re better of using a Functional Programming
 language.</p>
 <p>We still might have some problems due to mutable data. One way were this
-problem wouldn’t exist is when we have an append-only architecture, but check below for other ideas.</p>
+problem wouldn’t exist is when we have an append-only architecture, but check
+below for other ideas.</p>
+</li>
+<li>
+<p><strong>Using both</strong>: If you try this, you’ll be unable to use both worlds
+efficiently. You’ll must probably not be using the greatest features of OO
+programming, or the greatest features of RDBMSs.</p>
 </li>
 </ul>
 <p>Stuart Halloway below describes a nice approach he uses in <a href="https://www.datomic.com/">Datomic</a>.
@@ -166,7 +185,7 @@ In my view, his approach fits FP, but not OOP, even though he says otherwise.</p
 <h2 id="solving-according-to-stuart-halloway-one-of-datomic-creators"><a class="anchor" href="https://gabrielsimoes.github.io//#solving-according-to-stuart-halloway-one-of-datomic-creators" aria-hidden="true">¶</a> Solving according to Stuart Halloway (one of Datomic creators)</h2>
 <ul>
 <li>
-<p>A nice table from a Stuart Halloway’s talk <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn3" id="fnref3">[3]</a></sup>:</p>
+<p>A nice table from Stuart Halloway’s talk <sup class="footnote-ref"><a href="https://gabrielsimoes.github.io//#fn3" id="fnref3">[3]</a></sup>:</p>
 <table>
 <thead>
 <tr>
