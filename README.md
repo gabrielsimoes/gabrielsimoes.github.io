@@ -19,7 +19,8 @@ HTML templating engine and [SCSS](https://sass-lang.com/) as a CSS preprocessor.
 It features not only an introductory "About Me" page, but also a
 reading/watching list and blog, all of which are configured through Markdown
 and YAML files in the notes folder. It also generates an atom feed for the blog
-and a PDF curriculum.
+and a PDF curriculum. The website also has a javascript service worker for
+saving just enough to be able load the about page when offline.
 
 There is more information about how this project was created in a [blog post](https://gabrielsimoes.github.io/articles/generating-a-static-blog-with-gulp.html).
 
