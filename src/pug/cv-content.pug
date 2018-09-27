@@ -1,12 +1,12 @@
 .about-title About Me
 .about-content
   p #{about}
-  p These are the skills I'm most experienced with:
+  p These are the skills I'm familiar with:
   .about-list-wrapper
     ul.about-list
       each skill in skills
         li.about-item= skill
-        
+
 mixin timeblock(item)
   .about-time-block
     if item.when
@@ -32,17 +32,17 @@ mixin timeblock(item)
         +desc(item.what, item.where)
     if item.extra
       .about-time-block-extra= item.extra
-        
+
 .about-title Education
 .about-content
   each item in education
     +timeblock(item)
-        
+
 .about-title Experience
 .about-content
   each item in work
     +timeblock(item)
-    
+
 .about-title Honors & Awards
 .about-content
   //- .about-subtitle International
@@ -51,15 +51,15 @@ mixin timeblock(item)
   //- .about-subtitle Domestic
   //- each item in awards.domestic
   //-   +timeblock(item)
-  
+
 .about-title Languages
 .about-content
   .about-list-wrapper
       ul.about-list
         each item in languages
           li.about-item= item.what + " (" + item.level + ")"
-  
-.about-title  Open-Source Projects
+
+.about-title Projects
 .about-content
   each item in projects
     +timeblock(item)

@@ -3,33 +3,34 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width,initial-scale=1")
-      
+
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans" media="all")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css" media="all")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-line-icons@2.4.1/css/simple-line-icons.min.css" media="all")
-    
+
     link(rel="stylesheet" href="./cv.css" media="all")
   body
     .cv-header
-      img.cv-image(src="./me-colored.png" alt="A picture of me")
-        
+      //- img.cv-image(src="./me-colored.png" alt="A picture of me")
+
       .cv-info
         p.cv-name #{fullname}
         p.cv-occupation #{occupation}
-    
+
+      .cv-contact
         ul.cv-contact-list
           mixin contact(title, url, icon)
             li
               a(href= url)
                 = title
                 span&attributes({class: "icon " + icon})
-          
+
           +contact(email, "mailto:" + email, "icon-envelope")
           +contact(github, "https://github.com/" + github, "icon-social-github")
-          +contact(facebook, "https://facebook.com/" + facebook, "icon-social-facebook")
+          //- +contact(facebook, "https://facebook.com/" + facebook, "icon-social-facebook")
+          +contact(linkedin, "https://linkedin.com/in/" + linkedin, "icon-social-linkedin")
           +contact(site, 'https://'+site, "icon-globe")
           +contact(place, '#', "icon-location-pin")
-          
+
     .cv-content
       include cv-content.pug
-      
