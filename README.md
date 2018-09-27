@@ -21,6 +21,8 @@ reading/watching list and blog, all of which are configured through Markdown
 and YAML files in the notes folder. It also generates an atom feed for the blog
 and a PDF curriculum.
 
+There is more information about how this project was created in a [blog post](https://gabrielsimoes.github.io/articles/generating-a-static-blog-with-gulp.html).
+
 ## How to setup
 
 After cloning the repository, you'd have to run `yarn install` to install
