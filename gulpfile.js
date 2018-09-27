@@ -13,16 +13,16 @@ var ghpages = require('gh-pages');
 var hljs = require('highlight.js');
 var imagemin = require('gulp-imagemin');
 var md = require('markdown-it')({
-  html: true,
-  xhtmlOut: true,
-  linkify: true,
-  typographer: true,
-  highlight: function (str, lang) {
+    html: true,
+    xhtmlOut: true,
+    linkify: true,
+    typographer: true,
+    highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
           return '<pre><code class="language-' + lang + ' hljs">' +
-                 hljs.highlight(lang, str, true).value +
-                 '</code></pre>';
+            hljs.highlight(lang, str, true).value +
+            '</code></pre>';
         } catch (__) {
           // ignore error.
         }
@@ -41,7 +41,7 @@ var md = require('markdown-it')({
     permalinkClass: 'anchor',
     permalinkSymbol: '¶',
     permalinkBefore: true,
-    slugify: function(name) {
+    slugify: function (name) {
       var hash = String(name);
       hash = hash.toLowerCase().replace(/\s/g, "-");
       hash = hash.replace(/[^a-z0-9\u4e00-\u9fa5äüö\-]/g, "");
@@ -108,7 +108,9 @@ function processPages(data) {
   function processPug(file) {
     sort();
 
-    let locals = Object.assign(Object.create(data), { filename: file.path });
+    let locals = Object.assign(Object.create(data), {
+      filename: file.path
+    });
 
     file.contents = new Buffer(minify(pug.render(file.contents, locals), {
       collapseWhitespace: true,
@@ -132,9 +134,9 @@ function processPages(data) {
     file.extname = '.html';
 
     var article = Object.assign(matter.attributes, {
-        url: url('/', file.relative),
-        content: content,
-        modified: new Date(stats.mtime)
+      url: url('/', file.relative),
+      content: content,
+      modified: new Date(stats.mtime)
     });
 
     var locals = Object.assign(Object.create(data), article);
@@ -190,53 +192,9 @@ function processPages(data) {
       path: '/atom.xml',
       contents: new Buffer(feed.atom1())
     }));
-
-    // Start building feed
-    // var feed = xmlbuilder.create('rss')
-    //                      .att('xmlns:atom', 'http://www.w3.org/2005/Atom')
-    //                      .att('version', '2.0')
-    //                      .ele('channel');
-    //
-    // // Website information
-    // feed.ele('title', {}, data.name + ' at ' + data.site);
-    // feed.ele('subtitle', {}, data.sitedescription);
-    // feed.ele('id', {}, baseUrl);
-    // feed.ele('link', {}, baseUrl);
-    // feed.ele('link', {rel: 'self'}, url(baseUrl, 'atom.xml'));
-    // feed.ele('updated', {}, new Date().toISOString());
-    // feed.ele('icon', {}, url(baseUrl, 'me-rss.jpg'));
-    // var author = feed.ele('author')
-    //   .ele('name', {}, data.name).up()
-    //   .ele('email', {}, data.email);
-    //
-    // for (let article of data.articles) {
-    //   let entry = feed.ele('entry');
-    //
-    //   entry.ele('title', {}, article.title);
-    //   entry.ele('id', {}, url(baseUrl, article.url));
-    //   entry.ele('updated', {}, article.modified.toISOString());
-    //   entry.ele('published', {}, article.date.toISOString());
-    //   entry.ele('link', {}, url(baseUrl, article.url));
-    //   if (article.subtitle) entry.ele('summary', {}, article.subtitle);
-    //   if (article.image) entry.ele('image', {}, url(baseUrl, article.image));
-    //   entry.ele('content').dat(absolutify(article.content, baseUrl));
-    // }
-    //
-    // return new Vinyl({
-    //   cwd: '/',
-    //   base: '/',
-    //   path: '/atom.xml',
-    //   contents: new Buffer(feed.end({
-    //               pretty: true,
-    //               indent: '  ',
-    //               newline: '\n',
-    //               allowEmpty: false,
-    //               spacebeforeslash: ''
-    //             }))
-    // });
   }
 
-  return through.obj(function(file, enc, callback) {
+  return through.obj(function (file, enc, callback) {
     if (file.isNull()) {
       this.push(file);
       return callback();
@@ -257,43 +215,43 @@ function processPages(data) {
     }
 
     callback();
-  }, function(callback) {
+  }, function (callback) {
     processFeed.call(this);
     callback();
   });
 }
 
-gulp.task('pages', function() {
+gulp.task('pages', function () {
   var data = getData();
 
   return gulp.src([
-    'notes/*/**/*.md',
-    '!notes/personal/**/*',
-    '!notes/personal',
-    'src/pug/{index,blog,archive,reading-watching-list,cv-page}.pug'
-  ]).pipe(plumber())
+      'notes/*/**/*.md',
+      '!notes/personal/**/*',
+      '!notes/personal',
+      'src/pug/{index,blog,archive,reading-watching-list,cv-page}.pug'
+    ]).pipe(plumber())
     .pipe(processPages(data))
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('pages-images', function() {
+gulp.task('pages-images', function () {
   return gulp.src([
-    'notes/*/**/*.{jpeg,jpg,png,gif,svg}',
-    '!notes/personal/**/*',
-    '!notes/personal'
-  ]).pipe(plumber())
+      'notes/*/**/*.{jpeg,jpg,png,gif,svg}',
+      '!notes/personal/**/*',
+      '!notes/personal'
+    ]).pipe(plumber())
     .pipe(imagemin())
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('js', function() {
+gulp.task('js', function () {
   return gulp.src('src/js/{main,serviceworker}.js')
     .pipe(plumber())
     .pipe(uglify())
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('css', function() {
+gulp.task('css', function () {
   return gulp.src('src/scss/{style,cv}.scss')
     .pipe(plumber())
     .pipe(env.if.not.production(sourcemaps.init()))
@@ -316,22 +274,29 @@ gulp.task('css', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
   return gulp.src('src/img/*')
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('other', function() {
+gulp.task('other', function () {
   return gulp.src('src/other/*')
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('cv', function(callback) {
+gulp.task('cv', function (callback) {
   (async () => {
-    var browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    var browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     var page = await browser.newPage();
-    await page.goto('file://' + path.join(__dirname, 'dist/cv-page.html'), {waitUntil: 'networkidle2'});
-    await page.pdf({path: 'dist/cv.pdf', format: 'A4'});
+    await page.goto('file://' + path.join(__dirname, 'dist/cv-page.html'), {
+      waitUntil: 'networkidle2'
+    });
+    await page.pdf({
+      path: 'dist/cv.pdf',
+      format: 'A4'
+    });
 
     await browser.close();
 
@@ -345,14 +310,14 @@ gulp.task('build-images', gulp.parallel('pages-images', 'images'));
 
 gulp.task('build', gulp.parallel('build-source', 'build-images'));
 
-gulp.task('watch-source', function() {
+gulp.task('watch-source', function () {
   gulp.watch([
     'src/**/*',
     'notes/**/*'
   ], gulp.parallel('build-source'));
 });
 
-gulp.task('watch-images', function() {
+gulp.task('watch-images', function () {
   gulp.watch([
     'src/img/*',
     'notes/**/*.{jpeg,jpg,png,gif,svg}',
@@ -361,7 +326,7 @@ gulp.task('watch-images', function() {
 
 gulp.task('watch', gulp.parallel('watch-source', 'watch-images'))
 
-gulp.task('server', function() {
+gulp.task('server', function () {
   return gulp.src('dist/')
     .pipe(webserver({
       host: '0.0.0.0',
@@ -372,11 +337,11 @@ gulp.task('server', function() {
 
 gulp.task('dev', gulp.parallel('watch', 'server'));
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
   return del('dist/');
 });
 
-gulp.task('deploy', function(callback) {
+gulp.task('deploy', function (callback) {
   ghpages.publish('dist/', {
     branch: 'master',
     message: 'Update ' + new Date().toISOString()
