@@ -22,15 +22,16 @@ html(lang="en")
           mixin contact(title, url, icon)
             li
               a(href= url)
-                = title
+                =title
                 span&attributes({class: "icon " + icon})
 
-          +contact(email, "mailto:" + email, "icon-envelope")
           +contact(github, "https://github.com/" + github, "icon-social-github")
           //- +contact(facebook, "https://facebook.com/" + facebook, "icon-social-facebook")
           +contact(linkedin, "https://linkedin.com/in/" + linkedin, "icon-social-linkedin")
-          +contact(site, 'https://'+site, "icon-globe")
           +contact(place, '#', "icon-location-pin")
+          +contact(email, "mailto:" + email, "icon-envelope")
+          +contact(site, "https://"+site, "icon-globe")
+          +contact(phone, "#", "icon-phone")
 
     .cv-content
       include cv-content.pug

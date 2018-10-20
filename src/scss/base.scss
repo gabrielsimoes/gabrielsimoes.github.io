@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 400;
+}
+
 h1,
 h2,
 h3,

@@ -1,7 +1,12 @@
 .about-title About Me
 .about-content
-  p #{about}
-  p These are the skills I'm familiar with:
+  // p #{about}
+  ul.about-list
+    each item in about
+      li.about-item= item
+
+.about-title Technical Skills
+.about-content
   .about-list-wrapper
     ul.about-list
       each skill in skills
@@ -10,28 +15,32 @@
 mixin timeblock(item)
   .about-time-block
     if item.when
-      .about-time-block-date= item.when.toLocaleDateString("en", { timeZone: "UTC", year: "numeric"})
+      .about-time-block-date= item.when
     else if item.start
-      .about-time-block-date
-        =item.start.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short"})
-        if item.end
-          = " — " + item.end.toLocaleDateString("en", { timeZone: "UTC", year: "numeric", month: "short"})
-        else
-          = " — Now"
+      .about-time-block-date= item.start + " — " + item.end
     .about-time-block-info
-      mixin desc(what, where)
+      mixin desc(what, where, extra)
         span.about-time-block-what= what
         if where
           = " — "
           span.about-time-block-where
             = where
+        if extra
+          - if (typeof(item.extra) == "string") {
+            = " — "
+            span.about-time-block-extra
+              = extra
+          - } else {
+            .about-time-block-extra
+              ul.about-list
+                each info in item.extra
+                  li.about-item= info
+          - }
       if item.url
         a(href=item.url)
-          +desc(item.what, item.where)
+          +desc(item.what, item.where, item.extra)
       else
-        +desc(item.what, item.where)
-    if item.extra
-      .about-time-block-extra= item.extra
+        +desc(item.what, item.where, item.extra)
 
 .about-title Education
 .about-content
@@ -45,12 +54,8 @@ mixin timeblock(item)
 
 .about-title Honors & Awards
 .about-content
-  //- .about-subtitle International
-  each item in awards.international
+  each item in awards
     +timeblock(item)
-  //- .about-subtitle Domestic
-  //- each item in awards.domestic
-  //-   +timeblock(item)
 
 .about-title Languages
 .about-content

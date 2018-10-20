@@ -31,20 +31,20 @@
 }
 
 .about-list-wrapper {
-  column-width: 10em;
+  column-width: 15em;
   margin-bottom: .5em;
+}
 
-  ul.about-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+ul.about-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 
-    li:before {
-      content: "• ";
-      padding-right: .3em;
-      font-weight: 600;
-      color: $details;
-    }
+  li:before {
+    content: "• ";
+    padding-right: .3em;
+    font-weight: 600;
+    color: $details;
   }
 }
 
