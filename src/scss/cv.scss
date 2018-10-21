@@ -36,8 +36,9 @@ html {
 
 .cv-contact {
   font-size: .9em;
-  // float: right;
-  text-align: right;
+  float: right;
+  // text-align: right;
+  text-align: left;
 }
 
 p.cv-name {
@@ -55,16 +56,20 @@ p.cv-occupation {
 
 .cv-contact-list {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
+  margin-right: -6em;
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
 
-  .icon {
+  li {
     position: relative;
-    top: .05em;
-    margin-left: .5em;
+    margin-left: 2em;
+
+    .icon {
+      position: absolute;
+      top: .05em;
+      left: -1.5em;
+    }
   }
 
   a {
