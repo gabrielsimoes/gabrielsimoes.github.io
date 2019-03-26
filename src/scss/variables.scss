@@ -1,11 +1,11 @@
-$bg-header: #aa4b41;
-$fg-header: #ffffff;
-$bg-main: #ffffff;
-$fg-main: #000000;
-$fg-footer: #6a737d;
-$details: darken($bg-header, 10);
-$link: #3273dc;
+$bg-header: #aa4b41 !default;
+$fg-header: #ffffff !default;
+$bg-main: #ffffff !default;
+$fg-main: #000000 !default;
+$fg-footer: #6a737d !default;
+$details: darken($bg-header, 10) !default;
+$link: #3273dc !default;
 
-// $break-mid: 600px;
-$break-mid: 849px;
-$break-large: 850px;
+// $break-mid: 600px !default;
+$break-mid: 849px !default;
+$break-large: 850px !default;

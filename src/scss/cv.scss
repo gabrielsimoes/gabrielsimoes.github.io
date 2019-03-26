@@ -1,3 +1,7 @@
+$bg-header: #ffffff;
+$fg-header: #000000;
+$details: #000000;
+
 @import 'variables';
 @import 'base';
 @import 'about';
@@ -6,9 +10,9 @@ html {
   margin: 0;
 
   height: 100%;
-  line-height: 1.2;
-  font-size: 16px;
+  font-size: 11pt;
   font-family: "Fira Sans", sans-serif, 'Fira Mono', monospace;
+  -webkit-print-color-adjust: exact;
 }
 
 .about-title,
@@ -17,10 +21,10 @@ html {
 }
 
 .cv-header {
-  padding: 1.5em 2em;
+  margin: 0;
+  padding: .5in .5in .1in .5in;
   overflow: auto;
 
-  -webkit-print-color-adjust: exact;
   background-color: $bg-header;
   color: $fg-header;
 }
@@ -37,12 +41,10 @@ html {
 .cv-contact {
   font-size: .9em;
   float: right;
-  // text-align: right;
   text-align: left;
 }
 
 p.cv-name {
-  // margin-top: .5em;
   margin: 0;
   font-size: 2em;
   font-weight: 600;
@@ -51,13 +53,13 @@ p.cv-name {
 p.cv-occupation {
   margin: 0;
   font-size: 1.2em;
-  color: darken($fg-header, 5);
 }
 
 .cv-contact-list {
   list-style: none;
-  margin-right: -6em;
+  margin-right: -5.5em;
   margin-bottom: 0;
+  font-size: 1em;
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
@@ -68,7 +70,7 @@ p.cv-occupation {
 
     .icon {
       position: absolute;
-      top: .05em;
+      top: .1em;
       left: -1.5em;
     }
   }
@@ -80,7 +82,7 @@ p.cv-occupation {
 }
 
 .cv-content {
-  margin: .3em 2em;
+  margin: .1in .5in .5in .5in;
 }
 
 .about-title {
