@@ -295,7 +295,7 @@ gulp.task('cv', function (callback) {
     });
     await page.pdf({
       path: 'dist/cv.pdf',
-      format: 'A4'
+      format: 'Letter'
     });
 
     await browser.close();
