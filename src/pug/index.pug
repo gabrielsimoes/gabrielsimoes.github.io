@@ -5,4 +5,9 @@ block title
   meta(name="Description" content="Main page with curriculum and personal projects.")
 
 block main
+  .about-title About Me
+  .about-content
+    ul.about-list
+      each item in about
+        li.about-item= item
   include cv-content.pug
