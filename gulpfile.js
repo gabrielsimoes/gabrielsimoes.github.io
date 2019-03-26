@@ -291,7 +291,7 @@ gulp.task('cv', function (callback) {
     });
     var page = await browser.newPage();
     await page.goto('file://' + path.join(__dirname, 'dist/cv-page.html'), {
-      waitUntil: 'networkidle2'
+      waitUntil: ['domcontentloaded', 'networkidle0']
     });
     await page.pdf({
       path: 'dist/cv.pdf',
