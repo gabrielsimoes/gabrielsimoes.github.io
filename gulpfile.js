@@ -221,7 +221,7 @@ gulp.task('pages', function () {
       'notes/*/**/*.md',
       '!notes/personal/**/*',
       '!notes/personal',
-      'src/pug/{index,blog,cv-page}.pug'
+      'src/pug/{index,about,blog,cv-page}.pug'
     ]).pipe(plumber())
     .pipe(processPages(data))
     .pipe(gulp.dest('dist/'));
