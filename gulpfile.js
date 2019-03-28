@@ -287,7 +287,7 @@ gulp.task('cv', function (callback) {
       waitUntil: ['domcontentloaded', 'networkidle0']
     });
     await page.pdf({
-      path: 'dist/cv.pdf',
+      path: 'dist/cvGabrielSimoes.pdf',
       format: 'Letter'
     });
 
