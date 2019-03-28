@@ -1,12 +1,12 @@
 .social-list-wrapper {
   display: table;
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
 }
 
 ul.social-list {
   list-style: none;
   overflow: hidden;
-  margin-top: 2em;
+  margin: 0;
   padding: 0;
   font-size: 1.2em;
   width: 100%;
@@ -20,29 +20,35 @@ ul.social-list {
 
   a {
     text-decoration: none;
-    color: $fg-header;
+    color: $fg-main;
   }
 }
 
+.social-info {
+    display: inline-block;
+    margin-left: .5em;
+    font-size: 0.75em;
+}
+
 .cv-wrapper {
-  margin-top: 2em;
   text-align: center;
 
   .cv-btn {
     display: inline-block;
-    padding: 0.35em .7em;
-    border: 0.1em solid $fg-header;
+    padding: .35em .7em .2em .7em;
+    border: 0.1em solid $fg-main;
     border-radius: 0.15em;
     box-sizing: border-box;
     text-decoration: none;
-    color: $fg-header;
+    color: $fg-main;
     text-align: center;
     transition: all 0.2s;
     word-spacing: -3px;
 
     &:hover {
-      color: darken($bg-header, 20);
-      background-color: #FFFFFF;
+      color: $bg-main;
+      background-color: $details;
+      border-color: $details;
     }
   }
 }

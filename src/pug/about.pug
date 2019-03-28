@@ -1,0 +1,16 @@
+extends layout.pug
+
+block title
+  title About Me // #{name}
+  meta(name="Description" content="About me page.")
+
+block main
+  h1.title About Me
+
+  br
+  ul.about-list
+    each item in about
+      li.about-item= item
+
+  include cv-content.pug
+

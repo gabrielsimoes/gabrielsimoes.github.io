@@ -5,8 +5,8 @@ block title
   meta(name="Description" content="Blog page with a list of articles.")
 
 block main
-  h1 Blog
-  
+  h1.title Blog
+
   ul.blog-list
     each article in articles
       li.blog-item
@@ -23,4 +23,3 @@ block main
             .blog-item-tags
               each tag in article.tags
                 span.blog-item-tag= tag
-          

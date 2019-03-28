@@ -2,12 +2,31 @@ extends layout.pug
 
 block title
   title #{name}
-  meta(name="Description" content="Main page with curriculum and personal projects.")
+  meta(name="Description" content="Main page about me and this website.")
 
 block main
-  .about-title About Me
-  .about-content
-    ul.about-list
-      each item in about
-        li.about-item= item
-  include cv-content.pug
+  .front-page-wrapper
+    img.my-image(src="/me-colored.png" alt="A picture of myself")
+    h1.my-name #{name}
+    h2.my-occupation #{occupation}
+
+    each item in websiteinfo
+        p= item
+
+    .social-list-wrapper
+      ul.social-list
+        mixin social(title, url, icon, showtitle)
+          li.social-item(title=title)
+            a(href= url)
+              span&attributes({class: "social-icon " + icon})
+              if showtitle
+                span.social-info=title
+
+        +social(email, "mailto:" + email, "icon-envelope", true)
+        +social(github, "https://github.com/" + github, "icon-social-github", true)
+        +social(facebook, "https://facebook.com/" + facebook, "icon-social-facebook", true)
+        br
+        +social(linkedin, "https://linkedin.com/in/" + linkedin, "icon-social-linkedin", true)
+        // +social(site, 'https://'+site, "icon-globe")
+        +social('Feed', '/atom.xml', "icon-feed", true)
+        +social(place, '#', "icon-location-pin", true)

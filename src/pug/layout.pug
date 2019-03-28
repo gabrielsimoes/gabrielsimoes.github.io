@@ -21,42 +21,24 @@ html(lang="en")
     link(rel="stylesheet" href="/style.css" media="all")
   body
     header
-      .header-top
-        img.my-image(src="/me-bw.png" alt="A picture of me")
-        p.my-name #{name}
-        p.my-occupation #{occupation}
+      p.website-name #{name}' Homepage
 
       nav
         ul.nav-menu
           li.nav-item
             a.nav-item-content(href="/") Home
           li.nav-item
-            a.nav-item-content(href="/blog.html") Blog
+            a.nav-item-content(href="/about.html") About Me
           li.nav-item
-            a.nav-item-content(href="/reading-watching-list.html") Reading/Watching List
+            a.nav-item-content(href="/blog.html") Blog
 
-        .cv-wrapper
-          a.cv-btn(href="/cv.pdf")
-            span.icon-doc
-              |
-              | My CV
+      .nav-cv.cv-wrapper
+        a.cv-btn(href="/cvGabrielSimoes.pdf")
+          span.icon-doc
+            |
+            | CV
 
-        .social-list-wrapper
-          ul.social-list
-            mixin social(title, url, icon)
-              li.social-item(title=title)
-                a(href= url)
-                  span&attributes({title: title, class: "social-icon " + icon})
-
-            +social(email, "mailto:" + email, "icon-envelope")
-            +social(github, "https://github.com/" + github, "icon-social-github")
-            +social(facebook, "https://facebook.com/" + facebook, "icon-social-facebook")
-            +social(linkedin, "https://linkedin.com/in/" + linkedin, "icon-social-linkedin")
-            +social(site, 'https://'+site, "icon-globe")
-            +social('Atom Feed', '/atom.xml', "icon-feed")
-            +social(place, '#', "icon-location-pin")
-
-    main.markdown-body
+    main
       block main
 
     footer

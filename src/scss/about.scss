@@ -11,8 +11,7 @@
 
   @media screen and (min-width: $break-mid) {
     display: inline-block;
-    width: 20%;
-    padding-left: 1em;
+    width: 15%;
     vertical-align: top;
   }
 }
@@ -26,7 +25,7 @@
 .about-content {
   @media screen and (min-width: $break-mid) {
     display: inline-block;
-    width: 80%;
+    width: 85%;
   }
 }
 
@@ -72,9 +71,7 @@ ul.about-list {
   }
 
   .about-time-block-date {
-    margin-left: 1em;
     margin-bottom: .1em;
-
     font-size: 90%;
     font-weight: bold;
     color: $details;

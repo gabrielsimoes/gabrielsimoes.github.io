@@ -36,23 +36,24 @@ h6 {
 
 h1 {
   padding-bottom: 0.3em;
-  font-size: 2em;
+  font-size: 1.5em;
   border-bottom: 1px solid #eaecef;
-  margin: 0.67em 0;
+  margin: 1em 0;
 }
 
 h2 {
   padding-bottom: 0.3em;
-  font-size: 1.5em;
+  font-size: 1.3em;
   border-bottom: 1px solid #eaecef;
+  margin: 1em 0 .3em 0;
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 h4 {
-  font-size: 1.15em;
+  font-size: 1.1em;
 }
 
 h5 {
@@ -75,7 +76,7 @@ article a:not(.anchor) {
   transition: background .2s cubic-bezier(.33,.66,.66,1);
 
   &:hover {
-    color: $fg-header;
+    color: $fg-main;
     background: $link;
     outline-width: 0;
     text-decoration: underline;
@@ -225,7 +226,7 @@ code {
     padding: 0.15em 0.4em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(27,31,35,0.05);
+    background-color: rgba(27,31,35,0.15);
   }
 }
 
@@ -284,10 +285,7 @@ blockquote {
 img {
   max-width: 100%;
   box-sizing: content-box;
-
-  @media screen and (min-width: $break-large) {
-    max-width: 80%;
-  }
+  max-height: 250px;
 
   &[align=right] {
     margin-left: 20px;

@@ -1,23 +1,11 @@
-.article-header {
-  line-height: 1.2;
-}
+.article-header {}
 
-.article-title {
-  margin: 0;
-  border: 0;
-  font-size: 2em;
-  font-weight: 600;
-}
+.article-title {}
 
-.article-subtitle {
-  margin: 0;
-  margin-top: -.2em;
-  font-size: 1.3em;
-  border: 0;
-}
+.article-subtitle {}
 
 .article-date {
-  margin: .3em 0 1.5em 0;
-  font-size: 1.1rem;
+  margin: .1em 0 1.5em 0;
+  font-size: 1.2em;
   color: lighten($fg-main, 40);
 }

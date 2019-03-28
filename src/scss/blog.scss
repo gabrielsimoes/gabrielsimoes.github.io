@@ -14,13 +14,8 @@
   display: block;
   float: left;
   max-width: 120px;
-  max-height: 100px;
+  max-height: 90px;
   margin-right: .5em;
-
-  @media screen and (min-width: $break-mid) {
-    max-width: 200px;
-    max-height: 150px;
-  }
 }
 
 .blog-item-title {
@@ -51,6 +46,6 @@
   font-family: monospace, monospace;
   font-size: 85%;
   border-radius: 4px;
-  color: $fg-header;
-  background-color: rgba($bg-header, 0.8);
+  color: $bg-main;
+  background-color: $details;
 }

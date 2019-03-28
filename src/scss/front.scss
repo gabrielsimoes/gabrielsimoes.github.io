@@ -1,0 +1,20 @@
+.front-page-wrapper {
+    text-align: center;
+}
+
+.my-image {
+    max-width: 100%;
+    width: 200px;
+}
+
+.my-name {
+  border-bottom: 0;
+  margin: .5em 0;
+}
+
+.my-occupation {
+  color: lighten($fg-main, 20);
+  border-bottom: 0;
+  margin: .5em 0;
+  margin: .3em 0;
+}
