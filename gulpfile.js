@@ -67,8 +67,8 @@ var yaml = require('js-yaml');
 
 function getData() {
   var data = yaml.safeLoad(fs.readFileSync('notes/info.yaml'));
-  data.books = yaml.safeLoad(fs.readFileSync('notes/books.yaml'));
-  data.talks = yaml.safeLoad(fs.readFileSync('notes/talks.yaml'));
+  // data.books = yaml.safeLoad(fs.readFileSync('notes/books.yaml'));
+  // data.talks = yaml.safeLoad(fs.readFileSync('notes/talks.yaml'));
   data.lastupdate = new Date();
   return data;
 }
@@ -94,13 +94,6 @@ function processPages(data) {
   function sort() {
     if (!sorted) {
       data.articles.sort(compDateTitle);
-
-      for (let book of data.books.read) book.type = 'book';
-      for (let talk of data.talks.watched) talk.type = 'talk';
-
-      data.rwlist = [].concat(data.books.read, data.talks.watched);
-      data.rwlist.sort(compDateTitle);
-
       sorted = true;
     }
   }
@@ -228,7 +221,7 @@ gulp.task('pages', function () {
       'notes/*/**/*.md',
       '!notes/personal/**/*',
       '!notes/personal',
-      'src/pug/{index,blog,archive,reading-watching-list,cv-page}.pug'
+      'src/pug/{index,blog,cv-page}.pug'
     ]).pipe(plumber())
     .pipe(processPages(data))
     .pipe(gulp.dest('dist/'));
