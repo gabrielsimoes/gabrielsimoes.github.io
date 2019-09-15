@@ -9,7 +9,7 @@ header, main, footer {
   margin-left: auto;
   margin-right: auto;
   max-width: 50em;
-  width: 90%;
+  width: 100%;
 }
 
 header {
@@ -19,7 +19,7 @@ header {
   display: -webkit-flex;
   display: flex;
   margin-top: 1em;
-  padding: 1em 2em;
+  padding: 1em;
   color: $fg-main;
   background-color: $bg-main;
   align-items: bottom;
@@ -35,7 +35,7 @@ header {
 }
 
 main {
-  padding: 1em 2em;
+  padding: 1em;
   box-sizing: border-box;
 
   background-color: $bg-main;
@@ -44,7 +44,7 @@ main {
 
 footer {
   text-align: center;
-  padding: 1em 2em;
+  padding: 1em;
   font-size: 90%;
   color: $fg-footer;
 }

@@ -2,6 +2,7 @@ $bg-main: #ffffff;
 $fg-main: #000000;
 $details: #000000;
 
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text&display=swap');
 @import 'variables';
 @import 'base';
 @import 'about';
@@ -11,7 +12,7 @@ html {
 
   height: 100%;
   font-size: 11pt;
-  font-family: "Fira Sans", sans-serif, 'Fira Mono', monospace;
+  font-family: 'Crimson Text', serif;
   -webkit-print-color-adjust: exact;
 }
 
@@ -30,7 +31,7 @@ html {
 
 .cv-header {
   margin: 0;
-  padding: .5in .5in .1in .5in;
+  padding: .5in .6in .2in .5in;
   overflow: auto;
 
   background-color: $bg-main;
@@ -47,14 +48,14 @@ html {
 }
 
 .cv-contact {
-  font-size: .9em;
+  font-size: 1em;
   float: right;
   text-align: left;
 }
 
 p.cv-name {
   margin: 0;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 600;
 }
 

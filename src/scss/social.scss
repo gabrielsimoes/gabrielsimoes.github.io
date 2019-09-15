@@ -1,6 +1,6 @@
 .social-list-wrapper {
   display: table;
-  margin: 1em auto 0 auto;
+  margin: .5em auto 0 auto;
 }
 
 ul.social-list {
@@ -50,5 +50,9 @@ ul.social-list {
       background-color: $details;
       border-color: $details;
     }
+  }
+
+  .cv-btn-text {
+    padding: 0 0 0 .3em;
   }
 }

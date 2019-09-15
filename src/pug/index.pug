@@ -10,8 +10,17 @@ block main
     h1.my-name #{name}
     h2.my-occupation #{occupation}
 
-    each item in websiteinfo
-        p= item
+    p Hi! Welcome to my personal website.
+    p
+      | I do my best at maintaining a blog about technology here, feel free
+      | to check it out!
+    p
+      | You can also take a look at some of my past projects and get to know
+      | me in the "About Me" page or my CV.
+      | I am currently on the look for summer internships or other job
+      | opportunities.
+    br
+    p You can also find me here:
 
     .social-list-wrapper
       ul.social-list
@@ -24,9 +33,4 @@ block main
 
         +social(email, "mailto:" + email, "icon-envelope", true)
         +social(github, "https://github.com/" + github, "icon-social-github", true)
-        +social(facebook, "https://facebook.com/" + facebook, "icon-social-facebook", true)
-        br
         +social(linkedin, "https://linkedin.com/in/" + linkedin, "icon-social-linkedin", true)
-        // +social(site, 'https://'+site, "icon-globe")
-        +social('Feed', '/atom.xml', "icon-feed", true)
-        +social(place, '#', "icon-location-pin", true)
