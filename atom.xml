@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
-    <title>Gabriel Simões at gabrielsimoes.github.io</title>
-    <updated>2019-03-28T02:18:21Z</updated>
+    <title>Gabriel Simoes at gabrielsimoes.github.io</title>
+    <updated>2019-09-15T17:34:26Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
-        <name>Gabriel Simões</name>
+        <name>Gabriel Simoes</name>
         <email>simoes.sgabriel@gmail.com</email>
         <uri>https://gabrielsimoes.github.io/</uri>
     </author>
