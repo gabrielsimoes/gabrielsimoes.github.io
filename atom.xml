@@ -2,11 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gabrielsimoes.github.io/</id>
     <title>Gabriel Simoes at gabrielsimoes.github.io</title>
-    <updated>2019-09-15T17:34:26Z</updated>
+    <updated>2020-08-04T14:10:21Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Gabriel Simoes</name>
-        <email>simoes.sgabriel@gmail.com</email>
         <uri>https://gabrielsimoes.github.io/</uri>
     </author>
     <link rel="alternate" href="https://gabrielsimoes.github.io/"/>
@@ -29,7 +28,7 @@ of these tools isn’t nearly as fun and rewarding as building it from scratch.<
 datasource to build a reading/watching list and my PDF resume. So I thought
 those tools wouldn’t be aproppriate for that and I’d end up having to use two
 different tools where I could use just one.</p>
-<h2 id="tools-and-project-structure"><a class="anchor" href="https://gabrielsimoes.github.io//#tools-and-project-structure" aria-hidden="true">¶</a> Tools and project structure</h2>
+<h2 id="tools-and-project-structure"><a class="anchor" href="https://gabrielsimoes.github.io//#tools-and-project-structure">¶</a> Tools and project structure</h2>
 <p>Now, let’s talk about what I used:</p>
 <p style="width: 150px; float: right;"><img src="generating-a-static-blog-with-gulp.svg" alt="Gulp Logo" /></p>
 <ul>
@@ -76,7 +75,7 @@ But basically I’m using a function that creates a closured <code>data</code> o
 time a markdown file arrives through the stream, it generates a page using the
 pug template, appends the frontmatter to the <code>data</code> object and pushes the file
 down the stream.</p>
-<h2 id="generating-the-pdf-resume"><a class="anchor" href="https://gabrielsimoes.github.io//#generating-the-pdf-resume" aria-hidden="true">¶</a> Generating the PDF Resume</h2>
+<h2 id="generating-the-pdf-resume"><a class="anchor" href="https://gabrielsimoes.github.io//#generating-the-pdf-resume">¶</a> Generating the PDF Resume</h2>
 <p>The nicest part was using <a href="https://github.com/GoogleChrome/puppeteer">puppeteer</a>
 to generate the PDF resume. It seemed like a hard thing to do, but turned out to
 be quite simple. I just had to write a custom CSS for printing and write a very
@@ -94,7 +93,7 @@ simple gulp task (it doesn’t use streams though, but there is no need for that
   })();
 });
 </code></pre>
-<h2 id="deploying"><a class="anchor" href="https://gabrielsimoes.github.io//#deploying" aria-hidden="true">¶</a> Deploying</h2>
+<h2 id="deploying"><a class="anchor" href="https://gabrielsimoes.github.io//#deploying">¶</a> Deploying</h2>
 <p>GitHub pages makes this a little harder than it could be, but nothing that we
 can’t handle. I created a <code>source</code> branch on the repo, and used it as the main
 branch, leaving the <code>master</code> branch as a totally separate branch where I’d
@@ -109,7 +108,7 @@ a simple gulp task:</p>
   }, callback);
 });
 </code></pre>
-<h2 id="closing-thoughts"><a class="anchor" href="https://gabrielsimoes.github.io//#closing-thoughts" aria-hidden="true">¶</a> Closing thoughts</h2>
+<h2 id="closing-thoughts"><a class="anchor" href="https://gabrielsimoes.github.io//#closing-thoughts">¶</a> Closing thoughts</h2>
 <p>Finally, I used <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>
 to find out potential improvements to the website and ended up implementing a
 a very simple Service Worker, which caches the static assets and front page. I
@@ -186,7 +185,7 @@ learn things more effectively and quickly review some details.</p>
 <li><a href="https://gabrielsimoes.github.io//#es6-beyond">ES6 &amp; Beyond</a></li>
 </ul>
 <!-- /TOC -->
-<h2 id="up-going"><a class="anchor" href="https://gabrielsimoes.github.io//#up-going" aria-hidden="true">¶</a> Up &amp; Going</h2>
+<h2 id="up-going"><a class="anchor" href="https://gabrielsimoes.github.io//#up-going">¶</a> Up &amp; Going</h2>
 <p>This first book is great for getting started into the series, specially if you
 have a shallow understanding of JS internals. That is because each of the other
 books will assume you have some basic understanding of the language mechanisms
@@ -194,8 +193,8 @@ explained deeply in the other books of the series.</p>
 <p>But if you already have a good understanding of the language, maybe it’s best to
 just skip to the other books.</p>
 <p>Always use the <code>&quot;use strict&quot;;</code> in your code. Keeps code safer and optimized.</p>
-<h2 id="scope-closures"><a class="anchor" href="https://gabrielsimoes.github.io//#scope-closures" aria-hidden="true">¶</a> Scope &amp; Closures</h2>
-<h3 id="scope-and-lexical-scope"><a class="anchor" href="https://gabrielsimoes.github.io//#scope-and-lexical-scope" aria-hidden="true">¶</a> Scope and Lexical Scope</h3>
+<h2 id="scope-closures"><a class="anchor" href="https://gabrielsimoes.github.io//#scope-closures">¶</a> Scope &amp; Closures</h2>
+<h3 id="scope-and-lexical-scope"><a class="anchor" href="https://gabrielsimoes.github.io//#scope-and-lexical-scope">¶</a> Scope and Lexical Scope</h3>
 <ul>
 <li>JavaScript compiles statements kind-of individually and shortly before they
 are executed. JS engines also use JIT, lazy compilation and hot compilation.</li>
@@ -218,7 +217,7 @@ structure, rather than by the execution stack.</li>
 are almost completely disabled in strict mode and the simple fact you are
 using them will disable several optimizations. So, <em>don’t use them</em>.</li>
 </ul>
-<h3 id="function-and-block-scopes"><a class="anchor" href="https://gabrielsimoes.github.io//#function-and-block-scopes" aria-hidden="true">¶</a> Function and Block Scopes</h3>
+<h3 id="function-and-block-scopes"><a class="anchor" href="https://gabrielsimoes.github.io//#function-and-block-scopes">¶</a> Function and Block Scopes</h3>
 <ul>
 <li>Author recommends using named functions all the time, even in expressions.
 Improves code readability and also stack traces.</li>
@@ -261,7 +260,7 @@ Improves code readability and also stack traces.</li>
 </code></pre>
 </li>
 </ul>
-<h3 id="closures"><a class="anchor" href="https://gabrielsimoes.github.io//#closures" aria-hidden="true">¶</a> Closures</h3>
+<h3 id="closures"><a class="anchor" href="https://gabrielsimoes.github.io//#closures">¶</a> Closures</h3>
 <ul>
 <li>Loops + Closure:
 This code prints <code>6</code> five times:<pre><code class="language-javascript hljs"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) {
@@ -307,7 +306,7 @@ inner function that then has closure over the private inner scope.</li>
 </li>
 <li>You can use ES6 file modules through <code>export</code>, <code>import</code> and <code>module</code>.</li>
 </ul>
-<h3 id="arrow-functions-es6"><a class="anchor" href="https://gabrielsimoes.github.io//#arrow-functions-es6" aria-hidden="true">¶</a> Arrow Functions (ES6)</h3>
+<h3 id="arrow-functions-es6"><a class="anchor" href="https://gabrielsimoes.github.io//#arrow-functions-es6">¶</a> Arrow Functions (ES6)</h3>
 <ul>
 <li>They bind <code>this</code> to the lexical context they are in:<pre><code class="language-javascript hljs"><span class="hljs-keyword">var</span> id = <span class="hljs-string">"not awesome"</span>;
 
@@ -349,8 +348,8 @@ good2.cool(); <span class="hljs-comment">// more awesome</span>
 </code></pre>
 </li>
 </ul>
-<h2 id="this-object-prototypes"><a class="anchor" href="https://gabrielsimoes.github.io//#this-object-prototypes" aria-hidden="true">¶</a> <code>this</code> &amp; Object Prototypes</h2>
-<h3 id="this"><a class="anchor" href="https://gabrielsimoes.github.io//#this" aria-hidden="true">¶</a> <code>this</code></h3>
+<h2 id="this-object-prototypes"><a class="anchor" href="https://gabrielsimoes.github.io//#this-object-prototypes">¶</a> <code>this</code> &amp; Object Prototypes</h2>
+<h3 id="this"><a class="anchor" href="https://gabrielsimoes.github.io//#this">¶</a> <code>this</code></h3>
 <ul>
 <li>
 <p><code>this</code> <em>isn’t</em> a reference to the function itself.</p>
@@ -438,7 +437,7 @@ Allows overriding with Implicit/Explicit Binding.</p>
 discourages it.</p>
 </li>
 </ul>
-<h3 id="objects"><a class="anchor" href="https://gabrielsimoes.github.io//#objects" aria-hidden="true">¶</a> Objects</h3>
+<h3 id="objects"><a class="anchor" href="https://gabrielsimoes.github.io//#objects">¶</a> Objects</h3>
 <ul>
 <li>In objects, property names are <em>always strings</em>:<pre><code class="language-javscript hljs">myObject[myObject] = 42;
 myObject[&quot;[object Object]&quot;]; // 42
@@ -518,7 +517,7 @@ it.next(). <span class="hljs-comment">// {value: 42, done: false}</span>
 </ul>
 </li>
 </ul>
-<h3 id="mixins"><a class="anchor" href="https://gabrielsimoes.github.io//#mixins" aria-hidden="true">¶</a> Mixins</h3>
+<h3 id="mixins"><a class="anchor" href="https://gabrielsimoes.github.io//#mixins">¶</a> Mixins</h3>
 <ul>
 <li>JS has no notion of classes/inheritance/polymorphism.</li>
 <li>Developers use mixings instead:<pre><code class="language-javascript hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mixin</span>(<span class="hljs-params">sourceObj, targetObj</span>) </span>{
@@ -539,7 +538,7 @@ it.next(). <span class="hljs-comment">// {value: 42, done: false}</span>
 <li>“Parasitic Inheritance”: calling <code>new Parent()</code> inside <code>new Child()</code>.</li>
 <li>“Implicit Mixings”: “borrowing” methods through “implicit binding”.</li>
 </ul>
-<h3 id="prototypes"><a class="anchor" href="https://gabrielsimoes.github.io//#prototypes" aria-hidden="true">¶</a> Prototypes</h3>
+<h3 id="prototypes"><a class="anchor" href="https://gabrielsimoes.github.io//#prototypes">¶</a> Prototypes</h3>
 <ul>
 <li><code>Object.create(obj)</code> (ES5) creates a object with <code>obj</code> in <code>[[Prototype]]</code>
 linkage.</li>
@@ -603,7 +602,7 @@ a.myLabel(); <span class="hljs-comment">// "obj a"</span>
 <code>a.__proto__</code>.</li>
 <li>You <em>should not</em> change the <code>[[Prototype]]</code> of an existing object.</li>
 </ul>
-<h3 id="behavior-delegationoloo-objects-linked-to-other-objects"><a class="anchor" href="https://gabrielsimoes.github.io//#behavior-delegationoloo-objects-linked-to-other-objects" aria-hidden="true">¶</a> Behavior Delegation/OLOO (objects-linked-to-other-objects)</h3>
+<h3 id="behavior-delegationoloo-objects-linked-to-other-objects"><a class="anchor" href="https://gabrielsimoes.github.io//#behavior-delegationoloo-objects-linked-to-other-objects">¶</a> Behavior Delegation/OLOO (objects-linked-to-other-objects)</h3>
 <ul>
 <li>An alternative way of thinking/designing software in JS, which the author
 thinks is better than Object Orientation.</li>
@@ -614,7 +613,7 @@ thinks is better than Object Orientation.</li>
 <li>We often can eliminate base classes, because behavior delegation suggests
 objects as peer of each other.</li>
 </ul>
-<h3 id="es6-class"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-class" aria-hidden="true">¶</a> ES6 <code>class</code></h3>
+<h3 id="es6-class"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-class">¶</a> ES6 <code>class</code></h3>
 <ul>
 <li>No need for <code>.prototype</code> references in the code.</li>
 <li><code>extends</code> keyword provides inheritance. It is also possible to extend built-in
@@ -625,8 +624,8 @@ objects.</li>
 <li><em>However</em>, it works mostly the same way as the <code>[[Prototype]]</code> mechanism.</li>
 <li><em>But</em> it makes some things “static” where otherwise they would be dynamic.</li>
 </ul>
-<h2 id="types-grammar"><a class="anchor" href="https://gabrielsimoes.github.io//#types-grammar" aria-hidden="true">¶</a> Types &amp; Grammar</h2>
-<h3 id="types"><a class="anchor" href="https://gabrielsimoes.github.io//#types" aria-hidden="true">¶</a> Types</h3>
+<h2 id="types-grammar"><a class="anchor" href="https://gabrielsimoes.github.io//#types-grammar">¶</a> Types &amp; Grammar</h2>
+<h3 id="types"><a class="anchor" href="https://gabrielsimoes.github.io//#types">¶</a> Types</h3>
 <ul>
 <li>JavaScript has only seven built-in types: <code>string</code>, <code>number</code>, <code>boolean</code>,
 <code>null</code>, <code>undefined</code>, <code>object</code> and <code>symbol</code> (introduced in ES6).</li>
@@ -651,8 +650,8 @@ resorting to the global <code>window</code> object:<pre><code class="language-ja
 </code></pre>
 </li>
 </ul>
-<h3 id="values"><a class="anchor" href="https://gabrielsimoes.github.io//#values" aria-hidden="true">¶</a> Values</h3>
-<h4 id="arrays"><a class="anchor" href="https://gabrielsimoes.github.io//#arrays" aria-hidden="true">¶</a> Arrays</h4>
+<h3 id="values"><a class="anchor" href="https://gabrielsimoes.github.io//#values">¶</a> Values</h3>
+<h4 id="arrays"><a class="anchor" href="https://gabrielsimoes.github.io//#arrays">¶</a> Arrays</h4>
 <ul>
 <li><code>delete</code> removes slots but does not update <code>.length</code>.</li>
 <li>Adding named properties to arrays doesn’t affect the <code>length</code> property, except
@@ -664,7 +663,7 @@ if the property “looks like a number”: <code>myArray[&quot;42&quot;] = &quot
 </code></pre>
 </li>
 </ul>
-<h4 id="strings"><a class="anchor" href="https://gabrielsimoes.github.io//#strings" aria-hidden="true">¶</a> Strings</h4>
+<h4 id="strings"><a class="anchor" href="https://gabrielsimoes.github.io//#strings">¶</a> Strings</h4>
 <ul>
 <li>JS <code>string</code>s are immutable.</li>
 <li>There are some array-like methods, but other array methods are not available.</li>
@@ -673,7 +672,7 @@ if the property “looks like a number”: <code>myArray[&quot;42&quot;] = &quot
 </code></pre>
 </li>
 </ul>
-<h4 id="numbers"><a class="anchor" href="https://gabrielsimoes.github.io//#numbers" aria-hidden="true">¶</a> Numbers</h4>
+<h4 id="numbers"><a class="anchor" href="https://gabrielsimoes.github.io//#numbers">¶</a> Numbers</h4>
 <ul>
 <li>JS <code>number</code>s use the “IEEE 754” standard (“double precision”), often called
 “floating-point.”</li>
@@ -710,11 +709,11 @@ a === <span class="hljs-literal">NaN</span>; <span class="hljs-comment">// false
 </ul>
 </li>
 </ul>
-<h4 id="void-operator"><a class="anchor" href="https://gabrielsimoes.github.io//#void-operator" aria-hidden="true">¶</a> <code>void</code> operator</h4>
+<h4 id="void-operator"><a class="anchor" href="https://gabrielsimoes.github.io//#void-operator">¶</a> <code>void</code> operator</h4>
 <ul>
 <li>“voids” out any value: <code>void &quot;foo&quot;; // undefined</code></li>
 </ul>
-<h4 id="value-vs-reference"><a class="anchor" href="https://gabrielsimoes.github.io//#value-vs-reference" aria-hidden="true">¶</a> Value vs. Reference</h4>
+<h4 id="value-vs-reference"><a class="anchor" href="https://gabrielsimoes.github.io//#value-vs-reference">¶</a> Value vs. Reference</h4>
 <ul>
 <li>Simple scalar primitives (<code>string</code>s, <code>number</code>s, etc.) are assigned/passed by
 value-copy.</li>
@@ -747,7 +746,7 @@ a; <span class="hljs-comment">// 42</span>
 Even though we’re passing the reference, the underlying value is unboxed from
 the <code>Number</code> object in the addition operation.</li>
 </ul>
-<h3 id="natives"><a class="anchor" href="https://gabrielsimoes.github.io//#natives" aria-hidden="true">¶</a> Natives</h3>
+<h3 id="natives"><a class="anchor" href="https://gabrielsimoes.github.io//#natives">¶</a> Natives</h3>
 <ul>
 <li>
 <p>Object sub-types/built-in objects/natives: <code>String()</code>, <code>Number()</code>,
@@ -804,7 +803,7 @@ reliable then using <code>Array(3)</code> or setting the <code>.length</code> pr
 </code></pre>
 </li>
 </ul>
-<h3 id="coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#coercion" aria-hidden="true">¶</a> Coercion</h3>
+<h3 id="coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#coercion">¶</a> Coercion</h3>
 <ul>
 <li>ToString: <code>a + &quot;&quot;</code>, <code>String(..)</code>, <code>.toString()</code> or <code>JSON.stringify(..)</code></li>
 <li>ToNumber: <code>Number(..)</code></li>
@@ -824,7 +823,7 @@ reliable then using <code>Array(3)</code> or setting the <code>.length</code> pr
 </code></pre>
 </li>
 </ul>
-<h4 id="explicit-coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#explicit-coercion" aria-hidden="true">¶</a> Explicit Coercion</h4>
+<h4 id="explicit-coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#explicit-coercion">¶</a> Explicit Coercion</h4>
 <ul>
 <li><strong>Strings &lt;–&gt; Numbers</strong>: <code>String(42)</code> and <code>Number(&quot;42&quot;)</code>.
 <ul>
@@ -840,7 +839,7 @@ reliable then using <code>Array(3)</code> or setting the <code>.length</code> pr
 </li>
 <li><strong>–&gt; Boolean</strong>: <code>!!x</code> or <code>Boolean(..)</code> (former is preferred)</li>
 </ul>
-<h4 id="implicit-coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#implicit-coercion" aria-hidden="true">¶</a> Implicit Coercion</h4>
+<h4 id="implicit-coercion"><a class="anchor" href="https://gabrielsimoes.github.io//#implicit-coercion">¶</a> Implicit Coercion</h4>
 <ul>
 <li><strong><code>a + b</code></strong>: If either is a string, the result is a string. Otherwise, it is
 always a numeric adition.</li>
@@ -854,7 +853,7 @@ the two operands values:
 </ul>
 </li>
 </ul>
-<h4 id="loosestrict-equals"><a class="anchor" href="https://gabrielsimoes.github.io//#loosestrict-equals" aria-hidden="true">¶</a> Loose/Strict Equals</h4>
+<h4 id="loosestrict-equals"><a class="anchor" href="https://gabrielsimoes.github.io//#loosestrict-equals">¶</a> Loose/Strict Equals</h4>
 <ul>
 <li>
 <p>Use <code>==</code> and <code>!=</code> when coercion is desired or makes no difference.</p>
@@ -887,7 +886,7 @@ the two operands values:
 </ul>
 </li>
 </ul>
-<h3 id="grammar"><a class="anchor" href="https://gabrielsimoes.github.io//#grammar" aria-hidden="true">¶</a> Grammar</h3>
+<h3 id="grammar"><a class="anchor" href="https://gabrielsimoes.github.io//#grammar">¶</a> Grammar</h3>
 <ul>
 <li><code>{a: 42}</code> isn’t an object, but a block with a labeled statement.</li>
 <li>The author discourages using labeled statements.</li>
@@ -897,8 +896,8 @@ expected <code>;</code>), and it can reasonably insert one, it does so.”</li>
 <li>Author: “use semicolons wherever you know they are ‘required’, and limit your
 assumptions about ASI to a minimum.”</li>
 </ul>
-<h2 id="async-performance"><a class="anchor" href="https://gabrielsimoes.github.io//#async-performance" aria-hidden="true">¶</a> Async &amp; Performance</h2>
-<h3 id="async"><a class="anchor" href="https://gabrielsimoes.github.io//#async" aria-hidden="true">¶</a> Async</h3>
+<h2 id="async-performance"><a class="anchor" href="https://gabrielsimoes.github.io//#async-performance">¶</a> Async &amp; Performance</h2>
+<h3 id="async"><a class="anchor" href="https://gabrielsimoes.github.io//#async">¶</a> Async</h3>
 <ul>
 <li>JavaScript executes asynchronous code in an “Event Loop”.</li>
 <li>Each iteration of the loop is a “tick”: user interaction, IO, timers… they
@@ -932,7 +931,7 @@ variations of Promise patterns exist.</li>
 </ul>
 </li>
 </ul>
-<h3 id="performance"><a class="anchor" href="https://gabrielsimoes.github.io//#performance" aria-hidden="true">¶</a> Performance</h3>
+<h3 id="performance"><a class="anchor" href="https://gabrielsimoes.github.io//#performance">¶</a> Performance</h3>
 <ul>
 <li>Ways to increase program performance:
 <ul>
@@ -957,7 +956,7 @@ statement.</li>
 </ul>
 </li>
 </ul>
-<h2 id="es6-beyond"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-beyond" aria-hidden="true">¶</a> ES6 &amp; Beyond</h2>
+<h2 id="es6-beyond"><a class="anchor" href="https://gabrielsimoes.github.io//#es6-beyond">¶</a> ES6 &amp; Beyond</h2>
 <p><em>I haven’t read this book yet.</em></p>
 ]]></content>
     </entry>
@@ -1047,7 +1046,7 @@ statement.</li>
         <updated>2018-05-07T00:00:00Z</updated>
         <summary type="html"><![CDATA[Amazing talk by Rich Hickey on fundamental Clojure and Functional Programming concurrency concepts.
 ]]></summary>
-        <content type="html"><![CDATA[<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction" aria-hidden="true">¶</a> Introduction</h2>
+        <content type="html"><![CDATA[<h2 id="introduction"><a class="anchor" href="https://gabrielsimoes.github.io//#introduction">¶</a> Introduction</h2>
 <ul>
 <li>All OO languages have fundamental things in common:
 <ul>
@@ -1072,7 +1071,7 @@ statement.</li>
 <li><em>Pure functions are Worry-Free</em></li>
 <li><em>But</em> not all programs are pure functions.</li>
 </ul>
-<h2 id="things-we-are-doing-wrong"><a class="anchor" href="https://gabrielsimoes.github.io//#things-we-are-doing-wrong" aria-hidden="true">¶</a> Things we are doing wrong</h2>
+<h2 id="things-we-are-doing-wrong"><a class="anchor" href="https://gabrielsimoes.github.io//#things-we-are-doing-wrong">¶</a> Things we are doing wrong</h2>
 <ul>
 <li>We created objects that can <em>change</em> in place.</li>
 <li>We left <em>time</em> out.</li>
@@ -1108,14 +1107,14 @@ statement.</li>
 </li>
 <li>Action and Perception are two different things.</li>
 </ul>
-<h2 id="epochal-time-model"><a class="anchor" href="https://gabrielsimoes.github.io//#epochal-time-model" aria-hidden="true">¶</a> Epochal Time Model</h2>
+<h2 id="epochal-time-model"><a class="anchor" href="https://gabrielsimoes.github.io//#epochal-time-model">¶</a> Epochal Time Model</h2>
 <p><img src="are-we-there-yet-epochal-time-model.png" alt="Epochal Time Model" /></p>
 <ul>
 <li>A point in time is a value - it can’t be changed.</li>
 <li>Our program is still organized in identities (succession of states).</li>
 <li>We use pure functions to produce the feature.</li>
 </ul>
-<h2 id="implementation-ideas"><a class="anchor" href="https://gabrielsimoes.github.io//#implementation-ideas" aria-hidden="true">¶</a> Implementation ideas</h2>
+<h2 id="implementation-ideas"><a class="anchor" href="https://gabrielsimoes.github.io//#implementation-ideas">¶</a> Implementation ideas</h2>
 <ul>
 <li>
 <p>We need constructs to represent values.</p>
@@ -1146,19 +1145,19 @@ statement.</li>
 </ul>
 </li>
 </ul>
-<h2 id="cas-compare-and-swap-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#cas-compare-and-swap-as-a-time-construct" aria-hidden="true">¶</a> CAS (Compare and Swap) as a Time Construct.</h2>
+<h2 id="cas-compare-and-swap-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#cas-compare-and-swap-as-a-time-construct">¶</a> CAS (Compare and Swap) as a Time Construct.</h2>
 <p><img src="are-we-there-yet-cas.png" alt="CAS" /></p>
 <ul>
 <li>Uncoordinated 1:1.</li>
 <li>Replaces state based on comparisons.</li>
 </ul>
-<h2 id="agents-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#agents-as-a-time-construct" aria-hidden="true">¶</a> Agents as a Time Construct</h2>
+<h2 id="agents-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#agents-as-a-time-construct">¶</a> Agents as a Time Construct</h2>
 <p><img src="are-we-there-yet-agents.png" alt="Agents" /></p>
 <ul>
 <li>Uncoordinated 1:1.</li>
 <li>Replaces state based on a queue through a thread pool.</li>
 </ul>
-<h2 id="stm-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#stm-as-a-time-construct" aria-hidden="true">¶</a> STM as a Time Construct</h2>
+<h2 id="stm-as-a-time-construct"><a class="anchor" href="https://gabrielsimoes.github.io//#stm-as-a-time-construct">¶</a> STM as a Time Construct</h2>
 <p><img src="are-we-there-yet-stm-1.png" alt="STM" /></p>
 <ul>
 <li>Multiple timelines in the same app.</li>
